@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'project-inffinity',
+    modulePrefix: 'social-web-infinity',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

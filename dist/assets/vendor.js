@@ -102,7 +102,7 @@ var runningTests = false;
 
   Module.prototype.makeDefaultExport = function () {
     var exports = this.module.exports;
-    if (exports !== null && (typeof exports === 'object' || typeof exports === 'function') && exports['default'] === undefined && !Object.isFrozen(exports)) {
+    if (exports !== null && (typeof exports === 'object' || typeof exports === 'function') && exports['default'] === undefined && Object.isExtensible(exports)) {
       exports['default'] = exports;
     }
   };

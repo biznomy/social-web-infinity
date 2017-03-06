@@ -1,7 +1,7 @@
 {
-  "name": "project-inffinity",
+  "name": "social-web-infinity",
   "version": "0.0.0",
-  "description": "Small description for project-inffinity goes here",
+  "description": "Small description for social-web-infinity goes here",
   "private": true,
   "directories": {
     "doc": "doc",
