@@ -10,7 +10,12 @@
         ================================================= -->
         <div class="sign-up-form">
 					<a href="index.html" class="logo"><img src="assets/images/logo.png" alt="Friend Finder"/></a>
+					
 					<h2 class="text-white">Find My Friends</h2>
+					<div class="googleSign" {{action 'login' 'google'}}>
+					<img class="firebaseui-idp-icon" src="assets/images/google-sign-in.png" width="60%" >
+					</div>
+
 					<div class="line-divider"></div>
 					{{#if isSignup }}
 					<div class="form-wrapper">
@@ -27,7 +32,7 @@
 							</fieldset>
 						</form>
 						<p>By signning up you agree to the terms</p>
-						<button class="btn-secondary">Signup</button>
+						<button class="btn-secondary" {{action 'signup'}}>Signup</button>
 					</div>
 					<a {{action 'signUpVeiw'}}>Already have an account?</a>
 					{{else}}
@@ -43,7 +48,7 @@
 							</fieldset>
 						</form>
 						<p {{action 'signUpVeiw'}}>I am new User</p>
-						<button class="btn-secondary">Login</button>
+						<button class="btn-secondary" {{action 'login' 'form'}}>Login</button>
 
 						</div>
 					{{/if}}

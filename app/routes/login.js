@@ -1,5 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	controllerName : "user-info"
+	controllerName : "user-info",
+	init : function(){
+		console.log("thisroute");
+	}
 });

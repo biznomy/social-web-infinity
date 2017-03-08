@@ -1,5 +1,23 @@
 'use strict';
 
+define('social-web-infinity/tests/adapters/login.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | adapters/login.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/login.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/adapters/user-info.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | adapters/user-info.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/user-info.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/app.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -9,13 +27,67 @@ define('social-web-infinity/tests/app.jshint', ['exports'], function (exports) {
     assert.ok(true, 'app.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/components/chat-card.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/chat-card.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/chat-card.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/components/menu-card.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/menu-card.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/menu-card.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/components/post-card-text.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/post-card-text.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/post-card-text.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/components/post-card-with-image.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/post-card-with-image.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/post-card-with-image.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/components/post-card-with-video.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/post-card-with-video.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/post-card-with-video.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/components/profile-card.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/profile-card.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/profile-card.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/controllers/application.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | controllers/application.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 7, col 9, \'$\' is not defined.\n\n1 error');
+    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 13, col 43, Missing semicolon.\ncontrollers/application.js: line 16, col 44, Missing semicolon.\ncontrollers/application.js: line 11, col 21, \'user\' is defined but never used.\ncontrollers/application.js: line 19, col 10, Missing semicolon.\ncontrollers/application.js: line 7, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 21, col 9, \'$\' is not defined.\n\n6 errors');
   });
 });
 define('social-web-infinity/tests/controllers/home.jshint', ['exports'], function (exports) {
@@ -24,7 +96,7 @@ define('social-web-infinity/tests/controllers/home.jshint', ['exports'], functio
   QUnit.module('JSHint | controllers/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/home.js should pass jshint.');
+    assert.ok(false, 'controllers/home.js should pass jshint.\ncontrollers/home.js: line 8, col 43, Missing semicolon.\ncontrollers/home.js: line 9, col 17, Missing semicolon.\n\n2 errors');
   });
 });
 define('social-web-infinity/tests/controllers/user-info.jshint', ['exports'], function (exports) {
@@ -33,7 +105,7 @@ define('social-web-infinity/tests/controllers/user-info.jshint', ['exports'], fu
   QUnit.module('JSHint | controllers/user-info.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/user-info.js should pass jshint.');
+    assert.ok(false, 'controllers/user-info.js should pass jshint.\ncontrollers/user-info.js: line 16, col 32, Expected \'===\' and instead saw \'==\'.\ncontrollers/user-info.js: line 28, col 17, \'SOCIAL_LOGIN\' is not defined.\n\n2 errors');
   });
 });
 define('social-web-infinity/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -134,6 +206,261 @@ define('social-web-infinity/tests/helpers/start-app.jshint', ['exports'], functi
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/integration/components/chat-card-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('chat-card', 'Integration | Component | chat card', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': 'N2/mJyi1',
+      'block': '{"statements":[["append",["unknown",["chat-card"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': '31cNFMvO',
+      'block': '{"statements":[["text","\\n"],["block",["chat-card"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/chat-card-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/chat-card-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/chat-card-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/integration/components/menu-card-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('menu-card', 'Integration | Component | menu card', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': '2uS1wtou',
+      'block': '{"statements":[["append",["unknown",["menu-card"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': 'yyY2RPVB',
+      'block': '{"statements":[["text","\\n"],["block",["menu-card"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/menu-card-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/menu-card-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/menu-card-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-text-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('post-card-text', 'Integration | Component | post card text', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': 'LmiXd6c5',
+      'block': '{"statements":[["append",["unknown",["post-card-text"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': 'Wcdwd3C9',
+      'block': '{"statements":[["text","\\n"],["block",["post-card-text"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-text-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/post-card-text-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/post-card-text-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-with-image-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('post-card-with-image', 'Integration | Component | post card with image', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': 'oZGpg1n5',
+      'block': '{"statements":[["append",["unknown",["post-card-with-image"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': 'Vm0+TKk4',
+      'block': '{"statements":[["text","\\n"],["block",["post-card-with-image"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-with-image-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/post-card-with-image-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/post-card-with-image-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-with-video-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('post-card-with-video', 'Integration | Component | post card with video', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': 'oWOGxi0e',
+      'block': '{"statements":[["append",["unknown",["post-card-with-video"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': 'Iox3G85j',
+      'block': '{"statements":[["text","\\n"],["block",["post-card-with-video"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/post-card-with-video-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/post-card-with-video-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/post-card-with-video-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/integration/components/profile-card-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('profile-card', 'Integration | Component | profile card', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template({
+      'id': 'sTnBTKse',
+      'block': '{"statements":[["append",["unknown",["profile-card"]],false]],"locals":[],"named":[],"yields":[],"blocks":[],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template({
+      'id': 'Tdcmx6Zl',
+      'block': '{"statements":[["text","\\n"],["block",["profile-card"],null,null,0],["text","  "]],"locals":[],"named":[],"yields":[],"blocks":[{"statements":[["text","      template block text\\n"]],"locals":[]}],"hasPartials":false}',
+      'meta': {}
+    }));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('social-web-infinity/tests/integration/components/profile-card-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/profile-card-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/profile-card-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/models/home.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/home.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/home.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/models/login.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/login.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/login.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/models/user-info.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/user-info.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/user-info.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/resolver.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -181,6 +508,50 @@ define('social-web-infinity/tests/test-helper.jshint', ['exports'], function (ex
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/adapters/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('adapter:login', 'Unit | Adapter | login', {
+    // Specify the other units that are required for this test.
+    // needs: ['serializer:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var adapter = this.subject();
+    assert.ok(adapter);
+  });
+});
+define('social-web-infinity/tests/unit/adapters/login-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/adapters/login-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/login-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/adapters/user-info-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('adapter:user-info', 'Unit | Adapter | user info', {
+    // Specify the other units that are required for this test.
+    // needs: ['serializer:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var adapter = this.subject();
+    assert.ok(adapter);
+  });
+});
+define('social-web-infinity/tests/unit/adapters/user-info-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/adapters/user-info-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/user-info-test.js should pass jshint.');
   });
 });
 define('social-web-infinity/tests/unit/controllers/application-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -291,6 +662,72 @@ define('social-web-infinity/tests/unit/controllers/user-info-test.jshint', ['exp
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/user-info-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('home', 'Unit | Model | home', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/home-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/home-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/home-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('login', 'Unit | Model | login', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/login-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/login-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/login-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/user-info-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('user-info', 'Unit | Model | user info', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/user-info-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/user-info-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/user-info-test.js should pass jshint.');
   });
 });
 define('social-web-infinity/tests/unit/routes/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
