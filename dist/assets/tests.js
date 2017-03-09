@@ -9,6 +9,15 @@ define('social-web-infinity/tests/adapters/login.jshint', ['exports'], function 
     assert.ok(true, 'adapters/login.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/adapters/post.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | adapters/post.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'adapters/post.js should pass jshint.\nadapters/post.js: line 6, col 23, \'SOCIAL_LOGIN\' is not defined.\nadapters/post.js: line 19, col 13, \'jQuery\' is not defined.\n\n2 errors');
+  });
+});
 define('social-web-infinity/tests/adapters/user-info.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -87,7 +96,7 @@ define('social-web-infinity/tests/controllers/application.jshint', ['exports'], 
   QUnit.module('JSHint | controllers/application.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 13, col 43, Missing semicolon.\ncontrollers/application.js: line 16, col 44, Missing semicolon.\ncontrollers/application.js: line 11, col 21, \'user\' is defined but never used.\ncontrollers/application.js: line 19, col 10, Missing semicolon.\ncontrollers/application.js: line 7, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 21, col 9, \'$\' is not defined.\n\n6 errors');
+    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 11, col 21, \'user\' is defined but never used.\ncontrollers/application.js: line 31, col 10, Missing semicolon.\ncontrollers/application.js: line 39, col 25, Missing semicolon.\ncontrollers/application.js: line 40, col 7, Missing semicolon.\ncontrollers/application.js: line 7, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 37, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 38, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 17, col 25, \'$\' is not defined.\ncontrollers/application.js: line 28, col 17, \'$\' is not defined.\n\n9 errors');
   });
 });
 define('social-web-infinity/tests/controllers/home.jshint', ['exports'], function (exports) {
@@ -204,6 +213,15 @@ define('social-web-infinity/tests/helpers/start-app.jshint', ['exports'], functi
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/instance-initializers/service-call.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | instance-initializers/service-call.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'instance-initializers/service-call.js should pass jshint.\ninstance-initializers/service-call.js: line 8, col 8, \'config\' is defined but never used.\n\n1 error');
   });
 });
 define('social-web-infinity/tests/integration/components/chat-card-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -452,6 +470,15 @@ define('social-web-infinity/tests/models/login.jshint', ['exports'], function (e
     assert.ok(true, 'models/login.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/models/post.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/post.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/post.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/models/user-info.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -497,6 +524,15 @@ define('social-web-infinity/tests/routes/login.jshint', ['exports'], function (e
     assert.ok(true, 'routes/login.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/services/service.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | services/service.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'services/service.js should pass jshint.\nservices/service.js: line 15, col 38, Missing semicolon.\nservices/service.js: line 13, col 13, \'self\' is defined but never used.\nservices/service.js: line 28, col 28, \'self\' is defined but never used.\nservices/service.js: line 31, col 24, \'self\' is defined but never used.\n\n4 errors');
+  });
+});
 define('social-web-infinity/tests/test-helper', ['exports', 'social-web-infinity/tests/helpers/resolver', 'ember-qunit'], function (exports, _socialWebInfinityTestsHelpersResolver, _emberQunit) {
 
   (0, _emberQunit.setResolver)(_socialWebInfinityTestsHelpersResolver['default']);
@@ -508,6 +544,28 @@ define('social-web-infinity/tests/test-helper.jshint', ['exports'], function (ex
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/adapters/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('adapter:home', 'Unit | Adapter | home', {
+    // Specify the other units that are required for this test.
+    // needs: ['serializer:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var adapter = this.subject();
+    assert.ok(adapter);
+  });
+});
+define('social-web-infinity/tests/unit/adapters/home-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/adapters/home-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/home-test.js should pass jshint.');
   });
 });
 define('social-web-infinity/tests/unit/adapters/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -706,6 +764,28 @@ define('social-web-infinity/tests/unit/models/login-test.jshint', ['exports'], f
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/login-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/post-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('post', 'Unit | Model | post', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/post-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/post-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/post-test.js should pass jshint.');
   });
 });
 define('social-web-infinity/tests/unit/models/user-info-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

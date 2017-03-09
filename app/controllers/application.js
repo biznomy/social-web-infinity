@@ -10,21 +10,33 @@ export default Ember.Controller.extend({
 				u["id"]= 1 ;
 				var user = self.store.createRecord('user-info', u);
                 // user;
-				self.set("islogedIn",true)
-				self.transitionToRoute('home');
+				
+				self.get("authToken")(function(result){
+					if(result){
+						self.transitionToRoute('home');
+						$("#spinner-wrapper").css("display","none");
+						
+					}else{
+						this.transitionToRoute('login');
+						
+						
+					}
+				});
+				
 			}else{
-				self.set("islogedIn",false)	
+				this.transitionToRoute('login');
+				$("#spinner-wrapper").css("display","none");
 			}
 			
 		}
-	setTimeout(function(){
-		$("#spinner-wrapper").css("display","none");	
-	  },1000);
-	  if(this.get("islogedIn")){
-	  	this.transitionToRoute('home');
-	  }else{
-	  	this.transitionToRoute('login');
-	  }
+	
+	 
 		
-	}
+	},
+	authToken:function(result){
+		SOCIAL_LOGIN.getToken(function(token) {
+		SOCIAL_LOGIN.authTokenz = token;
+	        result(true)
+	})
+}
 });

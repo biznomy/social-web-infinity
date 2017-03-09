@@ -5,7 +5,8 @@ export default Ember.Route.extend({
     
      return Ember.RSVP.hash({
       user : this.store.peekRecord('user-info',1),
-      //albums: this.store.findAll('album')
+      post: this.store.findAll('post')
+
     });
   }
  

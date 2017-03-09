@@ -7,6 +7,7 @@
         storageBucket: "project0-6ce96.appspot.com",
         messagingSenderId: "668216336467"
      },
+     authTokenz:"",
      init: function() {
          var mode = SOCIAL_LOGIN.getParameterByName('mode'),
              actionCode = SOCIAL_LOGIN.getParameterByName('oobCode'),

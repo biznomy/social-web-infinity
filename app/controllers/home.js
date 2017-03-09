@@ -7,6 +7,6 @@ export default Ember.Controller.extend({
 		setTimeout(function(){
 			console.log(self.get("model"))
 		}, 2000)
-	},
+	   },
 	
 });
