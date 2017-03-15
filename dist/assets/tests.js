@@ -96,7 +96,7 @@ define('social-web-infinity/tests/controllers/application.jshint', ['exports'], 
   QUnit.module('JSHint | controllers/application.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 11, col 21, \'user\' is defined but never used.\ncontrollers/application.js: line 31, col 10, Missing semicolon.\ncontrollers/application.js: line 39, col 25, Missing semicolon.\ncontrollers/application.js: line 40, col 7, Missing semicolon.\ncontrollers/application.js: line 7, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 37, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 38, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 17, col 25, \'$\' is not defined.\ncontrollers/application.js: line 28, col 17, \'$\' is not defined.\n\n9 errors');
+    assert.ok(false, 'controllers/application.js should pass jshint.\ncontrollers/application.js: line 11, col 21, \'user\' is defined but never used.\ncontrollers/application.js: line 32, col 10, Missing semicolon.\ncontrollers/application.js: line 40, col 25, Missing semicolon.\ncontrollers/application.js: line 41, col 7, Missing semicolon.\ncontrollers/application.js: line 7, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 38, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 39, col 9, \'SOCIAL_LOGIN\' is not defined.\ncontrollers/application.js: line 17, col 25, \'$\' is not defined.\ncontrollers/application.js: line 21, col 25, \'$\' is not defined.\ncontrollers/application.js: line 29, col 17, \'$\' is not defined.\n\n10 errors');
   });
 });
 define('social-web-infinity/tests/controllers/home.jshint', ['exports'], function (exports) {
@@ -575,7 +575,7 @@ define('social-web-infinity/tests/serializers/post.jshint', ['exports'], functio
   QUnit.module('JSHint | serializers/post.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'serializers/post.js should pass jshint.\nserializers/post.js: line 18, col 11, Missing semicolon.\nserializers/post.js: line 20, col 3, Missing semicolon.\nserializers/post.js: line 9, col 62, \'requestType\' is defined but never used.\nserializers/post.js: line 9, col 58, \'id\' is defined but never used.\n\n4 errors');
+    assert.ok(false, 'serializers/post.js should pass jshint.\nserializers/post.js: line 24, col 11, Missing semicolon.\nserializers/post.js: line 26, col 3, Missing semicolon.\nserializers/post.js: line 11, col 62, \'requestType\' is defined but never used.\nserializers/post.js: line 11, col 58, \'id\' is defined but never used.\n\n4 errors');
   });
 });
 define('social-web-infinity/tests/services/service.jshint', ['exports'], function (exports) {

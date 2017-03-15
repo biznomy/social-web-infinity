@@ -17,14 +17,15 @@ export default Ember.Controller.extend({
 						$("#spinner-wrapper").css("display","none");
 						
 					}else{
-						this.transitionToRoute('login');
+						self.transitionToRoute('login');
+						$("#spinner-wrapper").css("display","none");
 						
 						
 					}
 				});
 				
 			}else{
-				this.transitionToRoute('login');
+				self.transitionToRoute('login');
 				$("#spinner-wrapper").css("display","none");
 			}
 			
