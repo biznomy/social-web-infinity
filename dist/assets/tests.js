@@ -15,7 +15,7 @@ define('social-web-infinity/tests/adapters/post.jshint', ['exports'], function (
   QUnit.module('JSHint | adapters/post.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'adapters/post.js should pass jshint.\nadapters/post.js: line 7, col 24, \'SOCIAL_LOGIN\' is not defined.\n\n1 error');
+    assert.ok(false, 'adapters/post.js should pass jshint.\nadapters/post.js: line 8, col 24, \'SOCIAL_LOGIN\' is not defined.\n\n1 error');
   });
 });
 define('social-web-infinity/tests/adapters/user-info.jshint', ['exports'], function (exports) {
@@ -105,7 +105,7 @@ define('social-web-infinity/tests/controllers/home.jshint', ['exports'], functio
   QUnit.module('JSHint | controllers/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/home.js should pass jshint.\ncontrollers/home.js: line 8, col 44, Missing semicolon.\ncontrollers/home.js: line 9, col 17, Missing semicolon.\n\n2 errors');
+    assert.ok(false, 'controllers/home.js should pass jshint.\ncontrollers/home.js: line 9, col 44, Missing semicolon.\ncontrollers/home.js: line 11, col 17, Missing semicolon.\n\n2 errors');
   });
 });
 define('social-web-infinity/tests/controllers/user-info.jshint', ['exports'], function (exports) {
@@ -539,7 +539,7 @@ define('social-web-infinity/tests/routes/home.jshint', ['exports'], function (ex
   QUnit.module('JSHint | routes/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 5, col 39, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 6, col 39, Missing semicolon.\n\n1 error');
   });
 });
 define('social-web-infinity/tests/routes/login.jshint', ['exports'], function (exports) {
