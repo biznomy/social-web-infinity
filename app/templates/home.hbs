@@ -39,7 +39,11 @@
             </div><!-- Post Create Box End-->
 
            
-          
+          {{#each model as |foo|}}
+            <div>{{foo.id}}</div>
+               <div>{{foo.created_at}}</div>
+            
+          {{/each}}
             
             <!-- Post Content
             ================================================= -->

@@ -15,7 +15,7 @@ define('social-web-infinity/tests/adapters/post.jshint', ['exports'], function (
   QUnit.module('JSHint | adapters/post.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'adapters/post.js should pass jshint.\nadapters/post.js: line 6, col 23, \'SOCIAL_LOGIN\' is not defined.\nadapters/post.js: line 19, col 13, \'jQuery\' is not defined.\n\n2 errors');
+    assert.ok(false, 'adapters/post.js should pass jshint.\nadapters/post.js: line 7, col 24, \'SOCIAL_LOGIN\' is not defined.\n\n1 error');
   });
 });
 define('social-web-infinity/tests/adapters/user-info.jshint', ['exports'], function (exports) {
@@ -105,7 +105,7 @@ define('social-web-infinity/tests/controllers/home.jshint', ['exports'], functio
   QUnit.module('JSHint | controllers/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/home.js should pass jshint.\ncontrollers/home.js: line 8, col 43, Missing semicolon.\ncontrollers/home.js: line 9, col 17, Missing semicolon.\n\n2 errors');
+    assert.ok(false, 'controllers/home.js should pass jshint.\ncontrollers/home.js: line 8, col 44, Missing semicolon.\ncontrollers/home.js: line 9, col 17, Missing semicolon.\n\n2 errors');
   });
 });
 define('social-web-infinity/tests/controllers/user-info.jshint', ['exports'], function (exports) {
@@ -452,6 +452,33 @@ define('social-web-infinity/tests/integration/components/profile-card-test.jshin
     assert.ok(true, 'integration/components/profile-card-test.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/models/comment.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/comment.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/comment.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/models/created-by.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/created-by.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/created-by.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/models/file.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | models/file.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/file.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/models/home.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -512,7 +539,7 @@ define('social-web-infinity/tests/routes/home.jshint', ['exports'], function (ex
   QUnit.module('JSHint | routes/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/home.js should pass jshint.');
+    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 5, col 39, Missing semicolon.\n\n1 error');
   });
 });
 define('social-web-infinity/tests/routes/login.jshint', ['exports'], function (exports) {
@@ -522,6 +549,33 @@ define('social-web-infinity/tests/routes/login.jshint', ['exports'], function (e
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/login.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/serializers/comment.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | serializers/comment.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/comment.js should pass jshint.\nserializers/comment.js: line 4, col 16, \'RESTSerializer\' is not defined.\nserializers/comment.js: line 1, col 8, \'DS\' is defined but never used.\n\n2 errors');
+  });
+});
+define('social-web-infinity/tests/serializers/file.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | serializers/file.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/file.js should pass jshint.\nserializers/file.js: line 4, col 16, \'RESTSerializer\' is not defined.\nserializers/file.js: line 1, col 8, \'DS\' is defined but never used.\n\n2 errors');
+  });
+});
+define('social-web-infinity/tests/serializers/post.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | serializers/post.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/post.js should pass jshint.\nserializers/post.js: line 18, col 11, Missing semicolon.\nserializers/post.js: line 20, col 3, Missing semicolon.\nserializers/post.js: line 9, col 62, \'requestType\' is defined but never used.\nserializers/post.js: line 9, col 58, \'id\' is defined but never used.\n\n4 errors');
   });
 });
 define('social-web-infinity/tests/services/service.jshint', ['exports'], function (exports) {
@@ -722,6 +776,72 @@ define('social-web-infinity/tests/unit/controllers/user-info-test.jshint', ['exp
     assert.ok(true, 'unit/controllers/user-info-test.js should pass jshint.');
   });
 });
+define('social-web-infinity/tests/unit/models/comment-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('comment', 'Unit | Model | comment', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/comment-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/comment-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/comment-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/created-by-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('created-by', 'Unit | Model | created by', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/created-by-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/created-by-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/created-by-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/models/file-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('file', 'Unit | Model | file', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('social-web-infinity/tests/unit/models/file-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/models/file-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/file-test.js should pass jshint.');
+  });
+});
 define('social-web-infinity/tests/unit/models/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('home', 'Unit | Model | home', {
@@ -871,6 +991,106 @@ define('social-web-infinity/tests/unit/routes/sign-up-test.jshint', ['exports'],
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/sign-up-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/serializers/comment-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('comment', 'Unit | Serializer | comment', {
+    // Specify the other units that are required for this test.
+    needs: ['serializer:comment']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it serializes records', function (assert) {
+    var record = this.subject();
+
+    var serializedRecord = record.serialize();
+
+    assert.ok(serializedRecord);
+  });
+});
+define('social-web-infinity/tests/unit/serializers/comment-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/serializers/comment-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/comment-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/serializers/created-by-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('created-by', 'Unit | Serializer | created by', {
+    // Specify the other units that are required for this test.
+    needs: ['serializer:created-by']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it serializes records', function (assert) {
+    var record = this.subject();
+
+    var serializedRecord = record.serialize();
+
+    assert.ok(serializedRecord);
+  });
+});
+define('social-web-infinity/tests/unit/serializers/created-by-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/serializers/created-by-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/created-by-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/serializers/file-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('file', 'Unit | Serializer | file', {
+    // Specify the other units that are required for this test.
+    needs: ['serializer:file']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it serializes records', function (assert) {
+    var record = this.subject();
+
+    var serializedRecord = record.serialize();
+
+    assert.ok(serializedRecord);
+  });
+});
+define('social-web-infinity/tests/unit/serializers/file-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/serializers/file-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/file-test.js should pass jshint.');
+  });
+});
+define('social-web-infinity/tests/unit/serializers/post-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('post', 'Unit | Serializer | post', {
+    // Specify the other units that are required for this test.
+    needs: ['serializer:post']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it serializes records', function (assert) {
+    var record = this.subject();
+
+    var serializedRecord = record.serialize();
+
+    assert.ok(serializedRecord);
+  });
+});
+define('social-web-infinity/tests/unit/serializers/post-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/serializers/post-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/serializers/post-test.js should pass jshint.');
   });
 });
 /* jshint ignore:start */
