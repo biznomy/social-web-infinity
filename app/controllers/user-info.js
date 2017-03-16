@@ -11,11 +11,11 @@ export default Ember.Controller.extend({
 			    this.toggleProperty('isSignup');
 		},
 		login(provider){
-			alert(provider);
+			
 			 var email = '',password = '';
 			    if (provider == "password") {
-			        email = document.getElementById('email').value;
-			        password = document.getElementById('password').value;
+			        email = document.getElementById('login-email').value;
+			        password = document.getElementById('login-password').value;
 			        if (email.length < 4) {
 			            alert('Please enter an email address.');
 			            return;

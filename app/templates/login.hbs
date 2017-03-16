@@ -41,14 +41,14 @@
 						<form action="#">
 						
 							<fieldset class="form-group">
-								<input type="email" class="form-control" id="example-email" placeholder="Enter email">
+								<input type="email" class="form-control" id="login-email" placeholder="Enter email">
 							</fieldset>
 							<fieldset class="form-group">
-								<input type="password" class="form-control" id="example-password" placeholder="Enter a password">
+								<input type="password" class="form-control" id="login-password" placeholder="Enter a password">
 							</fieldset>
 						</form>
 						<p {{action 'signUpVeiw'}}>I am new User</p>
-						<button class="btn-secondary" {{action 'login' 'form'}}>Login</button>
+						<button class="btn-secondary" {{action 'login' 'password'}}>Login</button>
 
 						</div>
 					{{/if}}
