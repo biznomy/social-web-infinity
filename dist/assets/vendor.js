@@ -72883,6 +72883,62 @@ define("ember-cli-app-version/templates/app-version", ["exports"], function (exp
 
   exports["default"] = Ember.HTMLBars.template({ "id": "8CApq0Bb", "block": "{\"statements\":[[\"append\",[\"unknown\",[\"version\"]],false],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "modules/ember-cli-app-version/templates/app-version.hbs" } });
 });
+define('ember-cli-form-data/mixins/form-data-adapter', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Mixin.create({
+    // Overwrite to change the request types on which Form Data is sent
+    formDataTypes: ['POST', 'PUT', 'PATCH'],
+
+    // Overwrite to flatten the form data by removing the root
+    disableRoot: false,
+
+    ajaxOptions: function ajaxOptions(url, type, options) {
+      var data;
+
+      if (options && 'data' in options) {
+        data = options.data;
+      }
+
+      var hash = this._super.apply(this, arguments);
+
+      if (typeof FormData !== 'undefined' && data && this.formDataTypes.indexOf(type) >= 0) {
+        hash.processData = false;
+        hash.contentType = false;
+        hash.data = this._getFormData(data);
+      }
+
+      return hash;
+    },
+
+    _getFormData: function _getFormData(data) {
+      var formData = new FormData();
+      var root = Object.keys(data)[0];
+
+      Object.keys(data[root]).forEach(function (key) {
+        var baseFormKey = this.get('disableRoot') ? key : root + '[' + key + ']';
+
+        this._appendValue(data[root][key], baseFormKey, formData);
+      }, this);
+
+      return formData;
+    },
+
+    _appendValue: function _appendValue(value, formKey, formData) {
+      if (_ember['default'].isArray(value)) {
+        value.forEach(function (item) {
+          this._appendValue(item, formKey + '[]', formData);
+        }, this);
+      } else if (value && value.constructor === Object) {
+        Object.keys(value).forEach(function (key) {
+          this._appendValue(value[key], formKey + '[' + key + ']', formData);
+        }, this);
+      } else if (typeof value !== 'undefined') {
+        formData.append(formKey, value === null ? '' : value);
+      }
+    }
+  });
+});
 define("ember-data/-private/adapters", ["exports", "ember-data/adapters/json-api", "ember-data/adapters/rest"], function (exports, _emberDataAdaptersJsonApi, _emberDataAdaptersRest) {
   /**
     @module ember-data

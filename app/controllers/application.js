@@ -37,6 +37,7 @@ export default Ember.Controller.extend({
 	authToken:function(result){
 		SOCIAL_LOGIN.getToken(function(token) {
 		SOCIAL_LOGIN.authTokenz = token;
+		document.cookie = "id-token':"+token;
 	        result(true)
 	})
 }

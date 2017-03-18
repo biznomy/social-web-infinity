@@ -6,12 +6,14 @@ export default Ember.Route.extend({
    
      var d = Ember.RSVP.hash({
       user : this.store.peekRecord('user-info',1),
-      post: this.store.findAll('post')
+      post: this.store.findAll('post'),
+      sendPost:this.store.createRecord('home')
 
     });
      // console.log(d);
      return d;
 
   }
+
  
 });

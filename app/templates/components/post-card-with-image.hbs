@@ -3,7 +3,8 @@
            
             <div class="post-content">
                {{#if data.files.url}}
-               <img src="{{data.files.url}}" alt="post-image" class="img-responsive post-image" />
+               <img src="{{data.files.url}}" alt="post-image" class="img-responsive post-image" /> 
+              <!--<img src="http://thunder-team.com/friend-finder/images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
               {{/if}}
           <div class="post-container">
                 <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left" />
@@ -13,8 +14,8 @@
                     <p class="text-muted">Published a photo about 3 mins ago</p>
                   </div>
                   <div class="reaction">
-                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> {{data.like_count}}</a>
-                    <a class="btn text-blue"><i class="fa ion-compose"></i> {{data.comment_count}}</a>
+                    <a class="btn text-green" {{action 'postLike' data.id}}><i class="icon ion-thumbsup" ></i> {{data.like_count}}</a>
+                    <a class="btn text-blue" {{action 'postcomment' data.id}}><i class="fa ion-compose"></i> {{data.comment_count}}</a>
                   </div>
                   <div class="line-divider"></div>
                   <div class="post-text">

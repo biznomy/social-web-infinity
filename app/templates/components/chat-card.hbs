@@ -2,7 +2,7 @@
               <div class="title">Chat online</div>
               <ul class="online-users list-inline">
               {{#each onlinePepole as |person|}}
-                <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="{{person.phote}}" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                <li><a href="newsfeed-messages.html" title="{{person.title}}"><img src="{{person.phote}}" alt="user" class="img-responsive profile-photo" /><span class="online-dot" style="background:{{person.status}}"></span></a></li>
                {{/each}}
               </ul>
             </div><!--chat block ends-->
