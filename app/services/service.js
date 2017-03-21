@@ -23,15 +23,63 @@ export default Ember.Service.extend({
     _setup: function(inst) {
         inst.set('ip', config.serverIP);
         inst.set('port', config.port);
-       
     },
     checkStatus : function(self){
       
     },
-    authToken:function(self){
-      
+      authToken:function(self){
+      SOCIAL_LOGIN.getToken(function(token) {
+        SOCIAL_LOGIN.authTokenz = token;
+        document.cookie = "id-token':"+token;
+            result(true)
+    })
   
-}
+        },
+        
+         getAjax: function(urlPostfix ,getSuccess, getError){
+                let URL = this.get("ip")+":"+this.get("port")+urlPostfix;
+                $.ajax({
+                        type: "GET",
+                        url: URL,
+                        processData: false,
+                        contentType: false,
+                        headers: { 
+                           'id-token': SOCIAL_LOGIN.authTokenz
+                        },
+                        success: function(data, textStatus, jqXHR) {
+                           getSuccess(data, textStatus, jqXHR);
+                        },
+                        error: function(data, textStatus, jqXHR) {
+                           if(data.message.indexOf("Token Not Found")){
+                            self.get("authToken")();
+                           } 
+                           getError(data, textStatus, jqXHR);
+                        },
+                });
+         },
+         postAjax : function(urlPostfix, formData ,postSuccess , postError){
+           let self = this;
+            let URL = this.get("ip")+":"+this.get("port")+urlPostfix;
+             $.ajax({
+                        type: "POST",
+                        url: URL,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        headers: { 
+                           'id-token': SOCIAL_LOGIN.authTokenz
+                        },
+                        success: function(data, textStatus, jqXHR) {
+                           postSuccess(data, textStatus, jqXHR);
+                        },
+                        error: function(data, textStatus, jqXHR) {
+                           if(data.message.indexOf("Token Not Found")){
+                            self.get("authToken")();
+                           } 
+                           postError(data, textStatus, jqXHR);
+                        },
+                });
+         }
    
     
 });

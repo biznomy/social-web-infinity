@@ -6,7 +6,7 @@ export default Ember.Route.extend({
    
      var d = Ember.RSVP.hash({
       user : this.store.peekRecord('user-info',1),
-      post: this.store.findAll('post'),
+      post: this.store.findAll('post',{ reload: true }),
       sendPost:this.store.createRecord('home')
 
     });

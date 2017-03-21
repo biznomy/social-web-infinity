@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
 	islogedIn:false,
 	init : function (){
 		let self = this;
+		this.currentPathDidChange();
 		SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
 			if(status){
 				var u = user1.providerData[0];
@@ -40,5 +41,15 @@ export default Ember.Controller.extend({
 		document.cookie = "id-token':"+token;
 	        result(true)
 	})
-}
+},
+currentPath : '',
+ currentPathDidChange: function() {
+ 		 Ember.run.schedule('afterRender', this, function() {
+ 		if(this.get('currentPath') !== "index"){
+ 			console.log(this.get('currentPath'));
+ 		}
+ 	})
+ 		
+
+ 	}.observes('currentPath')
 });

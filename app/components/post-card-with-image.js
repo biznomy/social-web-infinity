@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  service: Ember.inject.service('service'),
   confirm: function(data) {
       $.ajax({
         data: data,
@@ -12,39 +13,30 @@ export default Ember.Component.extend({
       });
     },
   actions : {
-  	sendComment(event) {
-  		console.log(this.get("user"));
-        if (event.keyCode === 13){
-            //alert("entered")
+  	sendComment(id , event) {
+        if (event.key === "Enter"){
+            let urlpostfix = "/comment/save" 
+             var formData = new FormData();
+              formData.append("description" , document.getElementById(id).value);
+              formData.append("post_id", id);
+               this.get("service").postAjax(urlpostfix, formData ,function(data){
+                  console.log(data);
+                },function(data){
+                   console.log(data);
+                })
         }else{
-        	console.log("key")
+        	//console.log("key")
         }
     }	,
-    postcomment(id){
-      console.log(id)
-      ///comment/save  138.197.217.75
-      //description=cghfchg
-     // post_id=58be9471a2f0bc2f85a4fd08
-    },
     postLike(id){
-     $.ajax({
-        type: "GET",
-        url: "http://192.168.1.4:3000/like/"+id+"/set",
-       // data: formData,
-        processData: false,
-        contentType: false,
-        headers: { 
-           'id-token': SOCIAL_LOGIN.authTokenz
-        },
-        success: function(data, textStatus, jqXHR) {
-           //process data
-           console.log(data)
-        },
-        error: function(data, textStatus, jqXHR) {
-           //process error msg
-           console.log(data)
-        },
-});
+     let self = this;
+      let urlPostfix = "/like/"+id+"/set";
+      this.get("service").getAjax(urlPostfix,function(data){
+       
+      },function(data){
+         console.log(data);
+      })
+    
     }
   }
   

@@ -1,7 +1,7 @@
  <!-- Post Content
             ================================================= -->
            
-            <div class="post-content">
+            <div class="post-content" post-id={{data.id}}>
                {{#if data.files.url}}
                <img src="{{data.files.url}}" alt="post-image" class="img-responsive post-image" /> 
               <!--<img src="http://thunder-team.com/friend-finder/images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
@@ -15,7 +15,7 @@
                   </div>
                   <div class="reaction">
                     <a class="btn text-green" {{action 'postLike' data.id}}><i class="icon ion-thumbsup" ></i> {{data.like_count}}</a>
-                    <a class="btn text-blue" {{action 'postcomment' data.id}}><i class="fa ion-compose"></i> {{data.comment_count}}</a>
+                    <a class="btn text-blue" ><i class="fa ion-compose"></i> {{data.comment_count}}</a>
                   </div>
                   <div class="line-divider"></div>
                   <div class="post-text">
@@ -34,7 +34,7 @@
 
                   <div class="post-comment">
                     <img src="{{user.photoURL}}" alt="" class="profile-photo-sm" />
-                    <input type="text" class="form-control" placeholder="Post a comment" onkeyUp={{action 'sendComment'}}>
+                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id}}>
                   </div>
                 </div>
               </div>
