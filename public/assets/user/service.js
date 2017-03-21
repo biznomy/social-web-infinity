@@ -1,6 +1,6 @@
 var AJAX = {
- //_url: "http://52.57.141.10:3737/user/",
-  // _url: "http://138.197.217.75:3100/user/",
+   _url: "http://192.168.1.7:3000/user/",
+   //_url: "http://138.197.217.75:3100/user/",
     post: function(u, d, s) {
         SOCIAL_LOGIN.getToken(function(token) {
             if(token) {

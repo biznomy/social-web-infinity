@@ -20,21 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
 var sendtoserver = true;
 /* override  SOCIAL_LOGIN.onAuthStateChanged method that are trigger when user login or logout */
 SOCIAL_LOGIN.onAuthStateChanged = function(status, user) {
-    console.log(status);
-    console.log(user);
-    if (status) {
+       if (status) {
         
         /*var u = user.providerData[0];
         var photoURL = "https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiftJuS3q_SAhWBsZQKHRI_AqgQjRwIBw&url=https%3A%2F%2Fgithub.com%2Fajaysaini235&psig=AFQjCNGXw5zXtLextBDnZzPEqmN4iX2GQg&ust=1488266293967998";
         document.getElementById('userInfoimg').src = u.photoURL ? u.photoURL : photoURL;
         document.getElementById('userInfoname').textContent = u.displayName;
         document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, 2);
-        document.getElementById('userInfo').style.display = 'block';
+        document.getElementById('userInfo').style.display = 'block';*/
         if (PUSH_NOTIFICATION && sendtoserver) {
-            $(".mdl-layout__tab:eq(1) span").click();
+           // $(".mdl-layout__tab:eq(1) span").click();
             sendtoserver = false;
             PUSH_NOTIFICATION.init();
-        }*/
+        }
     } else {
         //document.getElementById('userInfo').style.display = 'none';
     }

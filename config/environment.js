@@ -5,9 +5,10 @@ module.exports = function(environment) {
     modulePrefix: 'social-web-infinity',
     environment: environment,
     locationType: 'auto',
-    serverIP : "http://138.197.217.75",
+    //serverIP : "http://138.197.217.75",
+    serverIP : "http://192.168.1.7",
     rootURL: '/',
-    port:"3100",
+    port:"3000",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

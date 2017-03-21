@@ -24,7 +24,8 @@ export default Ember.Controller.extend({
 						
 					}
 				});
-				
+			//sendtoserver = false;
+          //  PUSH_NOTIFICATION.init();
 			}else{
 				self.transitionToRoute('login');
 				$("#spinner-wrapper").css("display","none");

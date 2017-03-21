@@ -68,7 +68,8 @@ var PUSH_NOTIFICATION = {
                 var dd = {
                     "name": me.displayName,
                     "uid": me.uid,
-                    "regid": token
+                    "regid": token,
+                    "email": me.email
                 };
                 AJAX.post('saveOrUpdate', dd, function(r) {
                     if(r.error)
