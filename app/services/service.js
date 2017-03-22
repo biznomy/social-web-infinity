@@ -57,7 +57,7 @@ export default Ember.Service.extend({
                         },
                 });
          },
-         postAjax : function(urlPostfix, formData ,postSuccess , postError){
+         postAjax : function(urlPostfix, formData ,postSuccess , postError, it){
            let self = this;
             let URL = this.get("ip")+":"+this.get("port")+urlPostfix;
              $.ajax({
@@ -70,13 +70,13 @@ export default Ember.Service.extend({
                            'id-token': SOCIAL_LOGIN.authTokenz
                         },
                         success: function(data, textStatus, jqXHR) {
-                           postSuccess(data, textStatus, jqXHR);
+                           postSuccess(data,it);
                         },
                         error: function(data, textStatus, jqXHR) {
                            if(data.message.indexOf("Token Not Found")){
                             self.get("authToken")();
                            } 
-                           postError(data, textStatus, jqXHR);
+                           postError(data,it);
                         },
                 });
          }

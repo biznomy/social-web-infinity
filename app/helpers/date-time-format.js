@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export function dateTimeFormat(params/*, hash*/) {
-  
-  console.log(params)
-  return params;
+  var d = moment(params[0], "YYYYMMDD").fromNow();
+  return "Published "+d;
 }
 
 export default Ember.Helper.helper(dateTimeFormat);

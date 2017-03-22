@@ -17,10 +17,9 @@
               </div>
               <div class="col-md-9">
                 <ul class="list-inline profile-menu">
-                  <li><a href="timeline.html" class="active">Timeline</a></li>
-                  <li><a href="timeline-about.html">About</a></li>
-                  <li><a href="timeline-album.html">Album</a></li>
-                  <li><a href="timeline-friends.html">Friends</a></li>
+                   <li>{{#link-to 'time-line'}}Timeline{{/link-to}}</li>
+                   <li>{{#link-to 'about'}}About{{/link-to}}</li>
+                  <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
                 </ul>
                 <ul class="follow-me list-inline">
                   <li>1,299 people following her</li>
@@ -62,9 +61,11 @@
              
             <!-- Friend List
               ================================================= -->
-              {{#each model.myfriend as |friend|}}
-              <div class="friend-list">
+             <div class="friend-list">
                 <div class="row">
+              {{#each model.myfriend as |friend|}}
+              
+                  
                   <div class="col-md-6 col-sm-6">
                     <div class="friend-card">
                       <img src="http://placehold.it/1030x360" alt="profile-cover" class="img-responsive cover" />
@@ -72,39 +73,27 @@
                         <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
                         <div class="friend-info">
                           <a href="#" class="pull-right text-green">My Friend</a>
-                          <h5><a href="timeline.html" class="profile-link">Sophia Lee</a></h5>
+                          <h5><a href="timeline.html" class="profile-link">{{friend.name}}</a></h5>
                           <p>Student at Harvard</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-md-6 col-sm-6">
-                    <div class="friend-card">
-                      <img src="http://placehold.it/1030x360" alt="profile-cover" class="img-responsive cover" />
-                      <div class="card-info">
-                        <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-                        <div class="friend-info">
-                          <a href="#" class="pull-right text-green">My Friend</a>
-                          <h5><a href="timeline.html" class="profile-link">John Doe</a></h5>
-                          <p>Traveler</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                 
                  {{/each}}
                  
+                 
+                 </div>
+                 </div>
 
-                </div>
-              </div>
+              
             </div>
 
 
 
 
             <div class="col-md-2 static">
-              <div id="sticky-sidebar">
+              <div id="sticky-sidebar"> 
                 <h4 class="grey">Sarah's activity</h4>
                 <div class="feed-item">
                   <div class="live-activity">

@@ -64,6 +64,7 @@ var PUSH_NOTIFICATION = {
         if (!PUSH_NOTIFICATION._isTokenSentToServer()) {
             PUSH_NOTIFICATION._setTokenSentToServer(true);
             var me = firebase.auth().currentUser;
+            alert("jis")
             if (me) {
                 var dd = {
                     "name": me.displayName,

@@ -8,9 +8,13 @@ export default Ember.Component.extend({
         method: 'POST',
         url: 'process-payment'
       }).then((digitalInventory) => {
-        this.store.pushPayload(digitalInventory);
-        this.transitionTo('thank-you');
+        this.store.pushPayload(digitalInventory);        
       });
+    },
+
+    success :function(data, inst){   
+      inst.transitionTo('home');
+      //window.location = window.location = 'http://localhost:4200';
     },
   actions : {
   	sendComment(id , event) {
@@ -19,13 +23,9 @@ export default Ember.Component.extend({
              var formData = new FormData();
               formData.append("description" , document.getElementById(id).value);
               formData.append("post_id", id);
-               this.get("service").postAjax(urlpostfix, formData ,function(data){
-                  console.log(data);
-                },function(data){
+               this.get("service").postAjax(urlpostfix, formData , this.success, function(data,inst){
                    console.log(data);
-                })
-        }else{
-        	//console.log("key")
+                },this);
         }
     }	,
     postLike(id){

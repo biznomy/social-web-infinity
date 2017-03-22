@@ -6,8 +6,13 @@ export default Ember.Controller.extend({
 		let self = this;
 		this.currentPathDidChange();
 		SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
-			if(status){
-				var u = user1.providerData[0];
+			    if(status){	  
+						if (PUSH_NOTIFICATION && sendtoserver) {
+				           // $(".mdl-layout__tab:eq(1) span").click();
+				            sendtoserver = false;
+				            PUSH_NOTIFICATION.init();
+				        }
+					var u = user1.providerData[0];
 				u["id"]= 1 ;
 				var user = self.store.createRecord('user-info', u);
                 // user;
@@ -15,6 +20,7 @@ export default Ember.Controller.extend({
 				self.get("authToken")(function(result){
 					if(result){
 						self.transitionToRoute('home');
+						
 						$("#spinner-wrapper").css("display","none");
 						
 					}else{

@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     locationType: 'auto',
     //serverIP : "http://138.197.217.75",
-    serverIP : "http://192.168.1.7",
+    serverIP : "http://192.168.1.6",
     rootURL: '/',
     port:"3000",
     EmberENV: {

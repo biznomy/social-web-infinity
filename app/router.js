@@ -12,6 +12,8 @@ Router.map(function() {
   this.route('home');
   this.route('time-line');
   this.route('friends');
+  this.route('about');
+  this.route('edit-about');
 });
 
 export default Router;
