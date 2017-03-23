@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	service: Ember.inject.service('service'),
 	islogedIn:false,
 	init : function (){
 		let self = this;
+		let its = this.get("service")
 		this.currentPathDidChange();
 		SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
 			    if(status){	  
@@ -13,28 +15,34 @@ export default Ember.Controller.extend({
 				            PUSH_NOTIFICATION.init();
 				        }
 					var u = user1.providerData[0];
-				u["id"]= 1 ;
-				var user = self.store.createRecord('user-info', u);
+				//u["id"]= 1 ;
+				//var user = self.store.createRecord('user-info', u);
                 // user;
-				
-				self.get("authToken")(function(result){
+				its.checkUser(self.store , u,function(status, obj){
+					if(status){
+						self.get("authToken")(function(result){
 					if(result){
 						self.transitionToRoute('home');
-						
+					setTimeout(function(){
 						$("#spinner-wrapper").css("display","none");
+					},1000)	
+						
 						
 					}else{
-						self.transitionToRoute('login');
-						$("#spinner-wrapper").css("display","none");
-						
+				   self.get("notLogin")();
 						
 					}
 				});
+
+					}else{
+			         self.get("notLogin")();
+					}
+				});
+				
 			//sendtoserver = false;
           //  PUSH_NOTIFICATION.init();
 			}else{
-				self.transitionToRoute('login');
-				$("#spinner-wrapper").css("display","none");
+				self.get("notLogin")();
 			}
 			
 		}
@@ -58,5 +66,11 @@ currentPath : '',
  	})
  		
 
- 	}.observes('currentPath')
+ 	}.observes('currentPath'),
+ 	notLogin: function(){
+ 		self.transitionToRoute('login');
+				setTimeout(function(){
+						$("#spinner-wrapper").css("display","none");
+					},1000)
+ 	}
 });

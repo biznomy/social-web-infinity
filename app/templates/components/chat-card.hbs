@@ -1,8 +1,8 @@
 <div id="chat-block">
               <div class="title">Chat online</div>
               <ul class="online-users list-inline">
-              {{#each onlinePepole as |person|}}
-                <li><a href="newsfeed-messages.html" title="{{person.title}}"><img src="{{person.phote}}" alt="user" class="img-responsive profile-photo" /><span class="online-dot" style="background:{{person.status}}"></span></a></li>
+              {{#each onlinePepole as |person index|}}
+                <li><a href="newsfeed-messages.html" title="{{person.name}}"><img src="{{person.photoURL}}" alt="user" class="img-responsive profile-photo" /><span class="online-dot" style="background:{{checker index}}"></span></a></li>
                {{/each}}
               </ul>
             </div><!--chat block ends-->

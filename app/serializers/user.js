@@ -6,7 +6,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
         files: { embedded: 'always' }
     },
     normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-        let _ids = "58cfa7d096c3f0286b3fc029";
+        /*let _ids = "58cfa7d096c3f0286b3fc029";
         //store.peekRecord('user-info',1)
         let data = [];
         for(let u = 0 ;u< payload.result.length; u++){
@@ -17,8 +17,8 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
         	}else{
 
         	}
-        }
-        payload = {users:data};
+        }*/
+        payload = {users:payload.result};
        
         return this._super(store, primaryModelClass, payload, id, requestType);
     }

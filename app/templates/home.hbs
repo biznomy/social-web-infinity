@@ -8,7 +8,7 @@
           
           {{profile-card img=model.user.photoURL name=model.user.displayName follower="2089" }}
           
-          {{chat-card onlinePepole=onlinePepole }}
+          {{chat-card onlinePepole=model.friend }}
            
             </div>
           
@@ -32,41 +32,18 @@
     			<div class="col-md-2 static">
             <div class="suggestions" id="sticky-sidebar">
               <h4 class="grey">Suggestion</h4>
-              <div class="follow-user">
-                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            
+              {{#each model.suggest as |user|}}
+              <div class="follow-user" >
+                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
                 <div>
-                  <h5><a href="timeline.html">Diana Amber</a></h5>
+                  <h5><a href="timeline.html">{{user.name}}</a></h5>
                   <a href="#" class="text-green">Add friend</a>
                 </div>
               </div>
-              <div class="follow-user">
-                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-                <div>
-                  <h5><a href="timeline.html">Cris Haris</a></h5>
-                  <a href="#" class="text-green">Add friend</a>
-                </div>
-              </div>
-              <div class="follow-user">
-                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-                <div>
-                  <h5><a href="timeline.html">Brian Walton</a></h5>
-                  <a href="#" class="text-green">Add friend</a>
-                </div>
-              </div>
-              <div class="follow-user">
-                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-                <div>
-                  <h5><a href="timeline.html">Olivia Steward</a></h5>
-                  <a href="#" class="text-green">Add friend</a>
-                </div>
-              </div>
-              <div class="follow-user">
-                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-                <div>
-                  <h5><a href="timeline.html">Sophia Page</a></h5>
-                  <a href="#" class="text-green">Add friend</a>
-                </div>
-              </div>
+             
+              {{/each}}
+            
             </div>
           </div>
     		</div>

@@ -17,25 +17,46 @@ export default Ember.Component.extend({
       //window.location = window.location = 'http://localhost:4200';
     },
   actions : {
-  	sendComment(id , event) {
+  	sendComment(id ,url , nme ,event) {
+    
         if (event.key === "Enter"){
             let urlpostfix = "/comment/save" 
              var formData = new FormData();
-              formData.append("description" , document.getElementById(id).value);
+             var des = document.getElementById(id).value
+              formData.append("description" , des);
               formData.append("post_id", id);
-               this.get("service").postAjax(urlpostfix, formData , this.success, function(data,inst){
-                   console.log(data);
+
+               let str =  '<div class="post-comment"><img src="'+url+'" alt="" class="profile-photo-sm" />'+
+                          '<p><a href="timeline.html" class="profile-link">'+nme+' </a><i class="em em-laughing"></i>'+des+'</p>'+
+                           '</div>';
+              this.get("service").postAjax(urlpostfix, formData , this.success, function(data,inst){
+              let elm = $("[comment-container='"+id+"']");               
+                elm.append(str);
+                document.getElementById(id).value = ""
                 },this);
         }
     }	,
     postLike(id){
      let self = this;
-      let urlPostfix = "/like/"+id+"/set";
+     let elm = $("[post-like-id='"+id+"']");
+      let status = elm.find("i").hasClass("unlike");
+      if(status){
+         let urlPostfix = "/like/"+id+"/set";
       this.get("service").getAjax(urlPostfix,function(data){
-       
+      let count = Number(elm.text())
+      elm.html('<i class="icon ion-thumbsup" ></i> '+(++count));
       },function(data){
          console.log(data);
       })
+    }else{
+      let urlPostfix = "/like/"+id+"/unset";
+      this.get("service").getAjax(urlPostfix,function(data){
+      let count = Number(elm.text())
+      elm.html('<i class="icon ion-thumbsup unlike" ></i> '+(--count));
+      },function(data){
+         console.log(data);
+      })
+    }
     
     }
   }

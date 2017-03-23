@@ -22,7 +22,7 @@
                     <p class="text-muted">Published a photo about 3 mins ago</p>
                   </div>
                   <div class="reaction">
-                    <a class="btn text-green" {{action 'postLike' data.id}}><i class="icon ion-thumbsup" ></i> {{data.like_count}}</a>
+                    <a class="btn text-green" post-like-id={{data.id}} {{action 'postLike' data.id}}><i class="icon ion-thumbsup unlike" ></i> {{data.like_count}}</a>
                     <a class="btn text-blue" ><i class="fa ion-compose"></i> {{data.comment_count}}</a>
                   </div>
                   <div class="line-divider"></div>
@@ -31,18 +31,19 @@
                   </div>
                   <div class="line-divider"></div>
                   
+                   <div comment-container={{data.id}}>
                   {{#each data.comments as |comment|}}
                       <div class="post-comment">
                         <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm" />
                         <p><a href="timeline.html" class="profile-link">{{comment.user_id.name}} </a><i class="em em-laughing"></i> {{comment.description}}</p>
                       </div>
                   {{/each}}
-                
+                </div>
 
 
                   <div class="post-comment">
                     <img src="{{user.photoURL}}" alt="" class="profile-photo-sm" />
-                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id}}>
+                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id user.photoURL user.displayName}}>
                   </div>
                 </div>
               </div>
