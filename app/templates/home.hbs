@@ -19,6 +19,7 @@
             {{post-and-share new=model.sendPost post=model.post user=model.user}}
             <!-- Post Create Box End-->
 
+            
             <!-- Post Content
             ================================================= -->
            {{#each model.post as |po|}}
@@ -35,11 +36,13 @@
                             
               {{#each model.suggest as |user|}}
               <div class="follow-user" >
+              
                 <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
                 <div>
-                  <h5><a href="timeline.html">{{user.name}}</a></h5>
+                  <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
                   <a href="#" class="text-green">Add friend</a>
                 </div>
+               
               </div>
              
               {{/each}}

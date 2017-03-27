@@ -5,8 +5,13 @@ service: Ember.inject.service('service'),
         let inst =this.get("service");
         let postfix = ""
           if(query !== undefined && query.route !== undefined && query.route === 'time-line'){
-              postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline"
-          }else{
+              postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline/me"
+          }
+          else if (query !== undefined && query.route !== undefined && query.route === 'profile'){
+           postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline/"+query.id
+          }
+
+          else{
               postfix = inst.get("ip")+":"+inst.get("port")+"/posts/wall";
           }
         

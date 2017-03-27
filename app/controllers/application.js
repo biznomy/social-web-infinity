@@ -29,20 +29,20 @@ export default Ember.Controller.extend({
 						
 						
 					}else{
-				   self.get("notLogin")();
+				   self.get("notLogin")(self);
 						
 					}
 				});
 
 					}else{
-			         self.get("notLogin")();
+			         self.get("notLogin")(self);
 					}
 				});
 				
 			//sendtoserver = false;
           //  PUSH_NOTIFICATION.init();
 			}else{
-				self.get("notLogin")();
+				self.get("notLogin")(self);
 			}
 			
 		}
@@ -67,8 +67,9 @@ currentPath : '',
  		
 
  	}.observes('currentPath'),
- 	notLogin: function(){
- 		self.transitionToRoute('login');
+
+ 	notLogin: function(self){
+ 		 		self.transitionToRoute('login');
 				setTimeout(function(){
 						$("#spinner-wrapper").css("display","none");
 					},1000)

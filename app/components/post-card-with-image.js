@@ -29,10 +29,13 @@ export default Ember.Component.extend({
                let str =  '<div class="post-comment"><img src="'+url+'" alt="" class="profile-photo-sm" />'+
                           '<p><a href="timeline.html" class="profile-link">'+nme+' </a><i class="em em-laughing"></i>'+des+'</p>'+
                            '</div>';
-              this.get("service").postAjax(urlpostfix, formData , this.success, function(data,inst){
+              this.get("service").postAjax(urlpostfix, formData ,function(data,inst){
               let elm = $("[comment-container='"+id+"']");               
                 elm.append(str);
                 document.getElementById(id).value = ""
+                }, function(data){
+                  console.log("Error send comment");
+                  console.log(data);
                 },this);
         }
     }	,
