@@ -3,7 +3,7 @@
       <!-- Timeline
       ================================================= -->
       <div class="timeline">
-        <div class="timeline-cover" style="background-image: url('https://pbs.twimg.com/profile_banners/857524141/1392061774/1500x500')">
+        <div class="timeline-cover" style="background-image: url('{{model.user.coverUrl}}')">
 
           <!--Timeline Menu for Large Screens-->
           <div class="timeline-nav-bar hidden-sm hidden-xs">
@@ -11,7 +11,7 @@
               <div class="col-md-3">
                 <div class="profile-info">
                   <img src="{{model.user.photoURL}}" alt="" class="img-responsive profile-photo" />
-                  <h3>{{model.user.displayName}}</h3>
+                  <h3>{{model.user.name}}</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>
               </div>
@@ -72,9 +72,10 @@
                       <div class="card-info">
                         <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg" />
                         <div class="friend-info">
-                          <a href="#" class="pull-right text-green">My Friend</a>
-                          <h5><a href="timeline.html" class="profile-link">{{friend.name}}</a></h5>
-                          <p>Student at Harvard</p>
+                          <a href="#" class="pull-right text-green"></a>
+                          <h5><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=friend.id)}}{{friend.name}}{{/link-to}}</a></h5>
+                          <!--<p>Student at Harvard</p>
+                          -->
                         </div>
                       </div>
                     </div>

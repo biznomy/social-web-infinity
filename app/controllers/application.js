@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	service: Ember.inject.service('service'),
 	islogedIn:false,
+	isUser:false,
 	init : function (){
 		let self = this;
 		let its = this.get("service")
@@ -22,11 +23,21 @@ export default Ember.Controller.extend({
 					if(status){
 						self.get("authToken")(function(result){
 					if(result){
-						self.transitionToRoute('home');
+						//this.store.find("user-info","me");
+					if(!self.get("isUser")){
+						its.getAjax("/user/me",function(data1){
+					data1["id"] = 1;
+					data1["coverUrl"] = data1.cover.url;
+					self.store.createRecord('user-info', data1);	
+					self.transitionToRoute('home');
+					self.set("isUser" , true);
 					setTimeout(function(){
 						$("#spinner-wrapper").css("display","none");
 					},1000)	
-						
+					},function(){
+
+					})	
+					}
 						
 					}else{
 				   self.get("notLogin")(self);

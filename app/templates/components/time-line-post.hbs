@@ -5,7 +5,7 @@
                 <!--Post Date-->
                 <div class="post-date hidden-xs hidden-sm">
                   <h5>{{data.created_by.name}}</h5>
-                  <p class="text-grey">Sometimes ago</p>
+                  <p class="text-grey">{{date-time-format data.created_at}}</p>
                 </div><!--Post Date End-->
 
                
@@ -19,7 +19,7 @@
                 <div class="post-detail">
                   <div class="user-info">
                     <h5><a href="timeline.html" class="profile-link">{{data.created_by.name}}</a> <span class="following">following</span></h5>
-                    <p class="text-muted">Published a photo about 3 mins ago</p>
+                    <p class="text-muted">{{date-time-format data.created_at}}</p>
                   </div>
                   <div class="reaction">
                     <a class="btn text-green" post-like-id={{data.id}} {{action 'postLike' data.id}}><i class="icon ion-thumbsup unlike" ></i> {{data.like_count}}</a>

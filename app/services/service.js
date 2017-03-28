@@ -29,9 +29,9 @@ export default Ember.Service.extend({
     },
     checkUser: function(store , userobject, success,error){
         
-        userobject["id"]= 1 ;
-        var user = store.createRecord('user-info', userobject);
-            success(true,user)    
+        //userobject["id"]= 1 ;
+        //var user = store.createRecord('user-info', userobject);
+            success(true,"user")    
     },
       authToken:function(self){
       SOCIAL_LOGIN.getToken(function(token) {
