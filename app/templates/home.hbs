@@ -11,19 +11,20 @@
           {{chat-card onlinePepole=model.friend }}
            
             </div>
-          
+         
     			<div class="col-md-7">
 
             <!-- Post Create Box
             ================================================= -->
-            {{post-and-share new=model.sendPost post=model.post user=model.user}}
+            {{post-and-share new=model.sendPost post=model.post user=model.user succeses=(action 'reloader')}}
             <!-- Post Create Box End-->
 
             
             <!-- Post Content
             ================================================= -->
-           {{#each model.post as |po|}}
-                {{post-card-with-image data=po user=model.user}}
+           
+           {{#each postezs as |po|}}
+                {{post-card-with-image data=po user=model.user }}
              {{/each}}
            <!-- End Post Content -->
            </div>
@@ -32,7 +33,8 @@
           ================================================= -->
     			<div class="col-md-2 static">
             <div class="suggestions" id="sticky-sidebar">
-              <h4 class="grey">Suggestion</h4>
+              <h4 class="grey">Suggestion <p style="font-size: 11px;">( {{ totalSuggestion}} peoples )</p></h4>
+
                             
               {{#each model.suggest as |user|}}
               <div class="follow-user" >

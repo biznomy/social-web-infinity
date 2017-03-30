@@ -68,6 +68,24 @@ export default Ember.Controller.extend({
 	        result(true)
 	})
 },
+actions : {
+logout(){
+	 if (PUSH_NOTIFICATION && !sendtoserver) {
+        PUSH_NOTIFICATION.deleteToken(function(r) {
+            console.log(r);
+            SOCIAL_LOGIN.logout();
+        });
+         $("#header").hide();
+         SOCIAL_LOGIN.logout();
+
+       // clearMessages();
+    } else {
+        SOCIAL_LOGIN.logout();
+    }
+
+}
+
+},
 currentPath : '',
  currentPathDidChange: function() {
  		 Ember.run.schedule('afterRender', this, function() {

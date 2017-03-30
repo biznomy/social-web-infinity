@@ -4,7 +4,8 @@ export default Ember.Controller.extend({
 	isSignup : false,
 	social : "",
 	init : function(){
-	//social = new SOCIAL_LOGIN.onAuthStateChanged	
+	//social = new SOCIAL_LOGIN.onAuthStateChanged
+	$("#header").hide();	
 	},
 	actions:{
 		signUpVeiw(){

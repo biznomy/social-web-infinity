@@ -8,6 +8,7 @@ service: Ember.inject.service('service'),
 		},
       
 		post(model){
+      let self = this;
 			       var formData = new FormData();
              let urlpostfix = "/posts" 
               formData.append("description" , document.getElementById('post-text').value);
@@ -15,6 +16,7 @@ service: Ember.inject.service('service'),
               this.get("service").postAjax(urlpostfix, formData ,function(data){
                  document.getElementById('post-text').value = '';
                  document.getElementById('post-file-field').value = '';
+                 self.get("succeses")(data);
                 },function(data){
                    console.log(data);
                 })

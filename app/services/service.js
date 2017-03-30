@@ -9,6 +9,7 @@ import config from '../config/environment';
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+       
        start: function() {
         var self = this;
         this.get('_setup')(this);
@@ -21,8 +22,15 @@ export default Ember.Service.extend({
      * @method Setup
      */
     _setup: function(inst) {
+      var count = {
+        friend : "",
+        suggestion:""
+
+       },
         inst.set('ip', config.serverIP);
         inst.set('port', config.port);
+        inst.set('count', count);
+
     },
     checkStatus : function(self){
       
