@@ -9,6 +9,10 @@ service: Ember.inject.service('service'),
           }
           else if (query !== undefined && query.route !== undefined && query.route === 'profile'){
            postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline/"+query.id
+          } 
+          else if (query !== undefined && query.route !== undefined && query.route === 'search'){
+           postfix = inst.get("ip")+":"+inst.get("port")+"/posts/search?searchString="+query.text
+          
           }
 
           else{

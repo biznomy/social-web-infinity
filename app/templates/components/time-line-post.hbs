@@ -5,7 +5,7 @@
                 <!--Post Date-->
                 <div class="post-date hidden-xs hidden-sm">
                   <h5>{{data.created_by.name}}</h5>
-                  <p class="text-grey">{{date-time-format data.created_at}}</p>
+                  <p class="text-grey">{{date-time-format data.created_at "timeline"}}</p>
                 </div><!--Post Date End-->
 
                
@@ -18,7 +18,7 @@
                 <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left" />
                 <div class="post-detail">
                   <div class="user-info">
-                    <h5><a href="timeline.html" class="profile-link">{{data.created_by.name}}</a> <span class="following"></span></h5>
+                    <h5><a  class="profile-link">{{#link-to "profile" (query-params id=data.created_by.id)}}{{data.created_by.name}}{{/link-to}}</a> <span class="following"></span></h5>
                     <p class="text-muted">{{date-time-format data.created_at}}</p>
                   </div>
                   <div class="reaction">
@@ -35,7 +35,7 @@
                   {{#each data.comments as |comment|}}
                       <div class="post-comment">
                         <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm" />
-                        <p><a href="timeline.html" class="profile-link">{{comment.user_id.name}} </a><i class="em em-laughing"></i> {{comment.description}}</p>
+                        <p><a  class="profile-link">{{#link-to "profile" (query-params id=comment.user_id._id)}}{{comment.user_id.name}}{{/link-to}}</a><i class="em em-laughing"></i> {{comment.description}}</p>
                       </div>
                   {{/each}}
                 </div>
@@ -43,7 +43,7 @@
 
                   <div class="post-comment">
                     <img src="{{user.photoURL}}" alt="" class="profile-photo-sm" />
-                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id user.photoURL user.displayName}}>
+                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id user.photoURL user.name}}>
                   </div>
                 </div>
               </div>

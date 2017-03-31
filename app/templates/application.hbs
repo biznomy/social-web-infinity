@@ -84,10 +84,10 @@
               </li> -->
               <!-- <li class="dropdown"><a href="contact.html">Contact</a></li> -->
             </ul>
-            <form class="navbar-form navbar-right hidden-sm">
+            <form onsubmit="return false;" class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
                 <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                <input onkeyUp={{action 'searchPost' 'searchPost_id'}} type="text" class="form-control" id="searchPost_id" placeholder="Search Post">
               </div>
             </form>
           </div><!-- /.navbar-collapse -->

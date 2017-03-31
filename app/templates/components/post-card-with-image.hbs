@@ -35,7 +35,7 @@
 
                   <div class="post-comment">
                     <img src="{{user.photoURL}}" alt="" class="profile-photo-sm" />
-                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id user.photoURL user.displayName}}>
+                    <input type="text" class="form-control" id="{{data.id}}" placeholder="Post a comment" onkeyUp={{action 'sendComment' data.id user.photoURL user.name}}>
                   </div>
                 </div>
               </div>

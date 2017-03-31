@@ -4,3 +4,7 @@
 .unlike{
 	    color: #607D8B !important;
 }
+textarea#post-text:focus {
+    height: 6em;
+    width:18em;
+}

@@ -2,13 +2,22 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	service: Ember.inject.service('service'),
+	search: Ember.inject.controller('search'),
 	islogedIn:false,
 	isUser:false,
+	authTokenKey:"",
 	init : function (){
 		let self = this;
 		let its = this.get("service")
-		this.currentPathDidChange();
-		SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
+       setInterval(function(){
+       	if(self.get("tokenStatus") !== self.get("service.authTokenezs") ){
+         	self.set("tokenStatus", self.get("service.authTokenezs"));	
+       	}
+       	
+       },2000)
+		
+		//this.currentPathDidChange();
+		/*SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
 			    if(status){	  
 						if (PUSH_NOTIFICATION && sendtoserver) {
 				           // $(".mdl-layout__tab:eq(1) span").click();
@@ -56,15 +65,18 @@ export default Ember.Controller.extend({
 				self.get("notLogin")(self);
 			}
 			
-		}
+		}*/
 	
 	 
 		
 	},
+	starter : function(){
+			
+	}.observes("tokenStatus"),
 	authToken:function(result){
 		SOCIAL_LOGIN.getToken(function(token) {
 		SOCIAL_LOGIN.authTokenz = token;
-		document.cookie = "id-token':"+token;
+		document.cookie = token;
 	        result(true)
 	})
 },
@@ -83,15 +95,27 @@ logout(){
         SOCIAL_LOGIN.logout();
     }
 
+},
+
+searchPost(id ,event){
+	if (event.key === "Enter"){
+		if(this.get('currentPath') !== "search"){
+			this.transitionToRoute('search');   
+		}
+         
+         this.get('search').test123(id);	  
+        }else{
+
+        }
 }
 
 },
 currentPath : '',
  currentPathDidChange: function() {
  		 Ember.run.schedule('afterRender', this, function() {
- 		if(this.get('currentPath') !== "index"){
+ 		//if(this.get('currentPath') !== "index"){
  			console.log(this.get('currentPath'));
- 		}
+ 		//}
  	})
  		
 

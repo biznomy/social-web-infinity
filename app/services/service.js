@@ -13,8 +13,27 @@ export default Ember.Service.extend({
        start: function() {
         var self = this;
         this.get('_setup')(this);
-        this.get("checkStatus")(this)      
+        this.get("checkStatus")(this)  
+
     },
+    init : function(){
+      let self = this;
+     SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
+       if(status){    
+         self.get("authToken")(self,function(result){
+          if(result && document.cookie !== result){
+               SOCIAL_LOGIN.authTokenz = result;
+            self.set('authTokenezs', result)
+            document.cookie = result;
+                  
+            }
+         })
+         }else{
+       
+      }
+     }
+    },
+
     /**
      * <p>
      * Setup service based on various config settings like IP, port and Call
@@ -26,10 +45,11 @@ export default Ember.Service.extend({
         friend : "",
         suggestion:""
 
-       },
+       };
         inst.set('ip', config.serverIP);
         inst.set('port', config.port);
         inst.set('count', count);
+        inst.set('authTokenezs',"");
 
     },
     checkStatus : function(self){
@@ -41,14 +61,11 @@ export default Ember.Service.extend({
         //var user = store.createRecord('user-info', userobject);
             success(true,"user")    
     },
-      authToken:function(self){
-      SOCIAL_LOGIN.getToken(function(token) {
-        SOCIAL_LOGIN.authTokenz = token;
-        document.cookie = "id-token':"+token;
-            result(true)
-    })
-  
-        },
+    authToken:function(self, result){
+    SOCIAL_LOGIN.getToken(function(token) {
+          result(token)
+  })
+  },
         
          getAjax: function(urlPostfix ,getSuccess, getError){
                 let URL = this.get("ip")+":"+this.get("port")+urlPostfix;

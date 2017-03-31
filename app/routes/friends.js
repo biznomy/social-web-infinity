@@ -6,7 +6,8 @@ export default Ember.Route.extend({
    
      var d = Ember.RSVP.hash({
       user : this.store.peekRecord('user-info',1),
-      myfriend: this.store.findAll('user')
+      myfriend: this.store.findAll('user'),
+      suggest:this.store.query('user',{"route":"suggester"}),
      
     });
      // console.log(d);

@@ -18,11 +18,17 @@ export default Ember.Controller.extend({
 		}, 2000)
 	   this.set("totalSuggestion" ,inst.get("count.suggester"));
 	   },
+	   authorsSorting: ['created_at:desc'],
+	   arrangedContent: Ember.computed.sort('postezs', 'authorsSorting'),
 	   actions : {
 	   	reloader(){
 	   		var self = this;
-		
-	   		 self.set('postezs',self.store.findAll('post'))	
+			self.set('postezs',self.store.findAll('post'));
+			// var data = self.get('post123');
+			// for(let a = 0; a < data.length; a++) {
+			// 	console.log(data[a]);
+			// }
+	   		 // self.set('postezs',data);
 	         console.log(self.get('postezs'));
 	
 			//

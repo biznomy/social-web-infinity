@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('about');
   this.route('edit-about');
   this.route('profile');
+  this.route('search');
 });
 
 export default Router;
