@@ -16,23 +16,7 @@ export default Ember.Service.extend({
         this.get("checkStatus")(this)  
 
     },
-    init : function(){
-      let self = this;
-     SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
-       if(status){    
-         self.get("authToken")(self,function(result){
-          if(result && document.cookie !== result){
-               SOCIAL_LOGIN.authTokenz = result;
-            self.set('authTokenezs', result)
-            document.cookie = result;
-                  
-            }
-         })
-         }else{
-       
-      }
-     }
-    },
+    
 
     /**
      * <p>
@@ -81,7 +65,7 @@ export default Ember.Service.extend({
                            getSuccess(data, textStatus, jqXHR);
                         },
                         error: function(data, textStatus, jqXHR) {
-                           if(data.message.indexOf("Token Not Found")){
+                           if(data.message !== undefined && data.message.indexOf("Token Not Found")){
                             self.get("authToken")();
                            } 
                            getError(data, textStatus, jqXHR);

@@ -16,6 +16,6 @@ export default DS.JSONAPIAdapter.extend({
        // host: this.get("service.ip")+this.get("service.port"),//"http://138.197.217.75:3100",
         headers: { 
            'Content-Type': 'application/json',
-           'id-token': SOCIAL_LOGIN.authTokenz
+           'id-token': document.cookie
         }
 });

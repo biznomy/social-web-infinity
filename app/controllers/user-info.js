@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	service: Ember.inject.service('service'),
+	application: Ember.inject.controller('application'),
 	isSignup : false,
 	social : "",
 	init : function(){
@@ -12,7 +14,8 @@ export default Ember.Controller.extend({
 			    this.toggleProperty('isSignup');
 		},
 		login(provider){
-			
+			let self = this;
+			let inst = self.get("service")
 			 var email = '',password = '';
 			    if (provider == "password") {
 			        email = document.getElementById('login-email').value;
@@ -28,6 +31,8 @@ export default Ember.Controller.extend({
 			    }
 			    SOCIAL_LOGIN.login(provider, function(status, result) {
 			        console.log(result);
+			        self.get('application').set("notUser",true);
+			        self.get('application').authError();
 			       
 			    }, email, password);
 		},
