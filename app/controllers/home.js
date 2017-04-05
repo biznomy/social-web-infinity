@@ -10,13 +10,23 @@ export default Ember.Controller.extend({
 		let inst = this.get("service");
 		$("#header").show();
 		 self.set('postezs',self.store.findAll('post'))	
-		setTimeout(function(){
+		 this.getUser();
+		 // self.set('model.user',self.store.peekRecord('user-info',1))	
 
-			 console.log(self.get("model"));
-
-
-		}, 2000)
 	   this.set("totalSuggestion" ,inst.get("count.suggester"));
+	   },
+	   getUser : function(){
+	   	let d = this.store.peekRecord('user-info',1)
+	   	 if(d !== null && d !== undefined && this.get("model") !== undefined && this.get("model")){
+	   	 	this.set('model.user',this.store.peekRecord('user-info',1))
+	   	 }else{
+	   	 	let ds = this;
+	   	 	setTimeout(function(){
+	   	 	ds.getUser();	
+	   	 	},1000)
+	   	 	
+	   	 }
+
 	   },
 	   authorsSorting: ['created_at:desc'],
 	   arrangedContent: Ember.computed.sort('postezs', 'authorsSorting'),
@@ -33,7 +43,16 @@ export default Ember.Controller.extend({
 	
 			//
 			//this.transitionToRoute('home', this.store.findAll('post'));
-	   	}
-	   }
+	   	},
+	   	sendFriendRequest : function(userData ,id){
+			let its = this.get("service");
+			its.getAjax("/friend/"+userData.id+"/request",function(data1){
+			document.getElementById(id).remove(); 
+			},function(da){
+				console.log(da)
+			});
+		}
+	   },
+
 
 });

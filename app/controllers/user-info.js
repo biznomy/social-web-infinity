@@ -30,10 +30,14 @@ export default Ember.Controller.extend({
 			        }
 			    }
 			    SOCIAL_LOGIN.login(provider, function(status, result) {
-			        console.log(result);
+			        if(status){
 			        self.get('application').set("notUser",true);
 			        self.get('application').authError();
 			       
+			        }else{
+			        	alert(result.message)
+			        }
+			    
 			    }, email, password);
 		},
 		signup(){

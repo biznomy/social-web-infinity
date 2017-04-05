@@ -25,15 +25,26 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
 
         	}
         }*/
-         if(payload.result[0].cover !== undefined){
+        
+        if(payload !== undefined && payload.type === "friend"){
            Ember.set(inst.get("count"), "friend" ,payload.count);
-        }else{
+        }else if(payload !== undefined && payload.type === "suggestion"){
            Ember.set(inst.get("count"), "suggester" ,payload.count);
-        }
+        }else{
+
+        }   
+        if(payload !== undefined && payload.type !== undefined)
+        {
+            for(var u = 0;u < payload.result.length;u++){
+                payload.result[u]["_type"]=payload.type
+            }
+         }
         payload = {users:payload.result};
        
-        
-       
+       // requestIn
+       // suggestion
+       //suggestion
         return this._super(store, primaryModelClass, payload, id, requestType);
+       
     }
 });

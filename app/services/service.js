@@ -33,8 +33,8 @@ export default Ember.Service.extend({
         inst.set('ip', config.serverIP);
         inst.set('port', config.port);
         inst.set('count', count);
-        inst.set('authTokenezs',"");
-
+        inst.set('authTokenezs',document.cookie);
+        SOCIAL_LOGIN.authTokenz = document.cookie;
     },
     checkStatus : function(self){
       
@@ -94,7 +94,32 @@ export default Ember.Service.extend({
                            postError(data,it);
                         },
                 });
-         }
+         },
+          deleteAjax: function(urlPostfix ,getSuccess, getError,inst,id){
+                let URL = this.get("ip")+":"+this.get("port")+urlPostfix;
+                $.ajax({
+                        type: "GET",
+                        url: URL,
+                        processData: false,
+                        contentType: false,
+                        headers: { 
+                           'id-token': SOCIAL_LOGIN.authTokenz
+                        },
+                        success: function(data, textStatus, jqXHR) {
+                          inst.store.findRecord('user', id).then(function(post) {
+                          post.deleteRecord();
+                         
+                         });
+                           getSuccess(data, textStatus, jqXHR);
+                        },
+                        error: function(data, textStatus, jqXHR) {
+                           if(data.message !== undefined && data.message.indexOf("Token Not Found")){
+                            self.get("authToken")();
+                           } 
+                           getError(data, textStatus, jqXHR);
+                        },
+                });
+         },
    
     
 });

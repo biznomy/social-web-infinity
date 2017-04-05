@@ -16,6 +16,8 @@ Router.map(function() {
   this.route('edit-about');
   this.route('profile');
   this.route('search');
+  this.route('not-friend-profile');
+ 
 });
 
 export default Router;

@@ -49,7 +49,31 @@
         </div>
         <div id="page-contents">
           <div class="row">
-            <div class="col-md-3"></div>
+            <div class="col-md-3" style="margin-top:100px;">
+
+             <div class="static" id="chat-block">
+            <div class="suggestions" id="">
+             <div class="title">Pending</div>
+
+                            
+              {{#each model.request as |user|}}
+              <div class="follow-user" >
+              
+                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
+                <div>
+                  <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
+                  <a class="text-green">Accept</a>
+                </div>
+               
+              </div>
+             
+              {{/each}}
+            
+            </div>
+          </div>
+
+
+            </div>
             <div class="col-md-7">
 
 

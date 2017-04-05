@@ -7,12 +7,12 @@ export default Ember.Controller.extend({
 	isUser:false,
 	authTokenKey:"",
 	notUser : false,
-	userSave : function(inst, data1 ,result){
+	userSave : function(data1 ,result){
        let user = this.store.peekRecord('user-info',1)
-       if((user === undefined || user === null) || user.id !== data1._id ){
+       if((user === undefined || user === null) || user._id !== data1._id ){
        		data1["id"] = 1;
 			data1["coverUrl"] = data1.cover.url;
-			inst.store.createRecord('user-info', data1);	
+			this.store.createRecord('user-info', data1);	
 			
        }
          result(true)  
@@ -52,11 +52,11 @@ export default Ember.Controller.extend({
 		let its = this.get("service");
 		if(document.cookie !== "" && document.cookie !== undefined && document.cookie !== null){
 			its.getAjax("/user/me",function(data1){
-			self.userSave(self ,data1 , function(){
+			self.userSave(data1 , function(){
 			self.transitionToRoute('home');
 			setTimeout(function(){
 				$("#spinner-wrapper").css("display","none");
-			},1500)	;
+			},2000)	;
 			});
 			
 			},function(data1){
@@ -170,10 +170,34 @@ searchPost(id ,event){
 },
 currentPath : '',
  currentPathDidChange: function() {
+ 	   var self = this;
+ 	   let its = this.get("service");
+ 		let user = this.store.peekRecord('user-info',1)
  		 Ember.run.schedule('afterRender', this, function() {
  		if(this.get('currentPath') !== "index"){
- 			console.log(this.get('currentPath'));
+ 			if(document.cookie !== "" && document.cookie !== undefined && document.cookie !== null){
+			if(user == null || user == undefined || user == ""){	
+			its.getAjax("/user/me",function(data1){
+			self.userSave(data1 , function(){	
+			self.transitionToRoute(self.get('currentPath'));
+			setTimeout(function(){
+				$("#spinner-wrapper").css("display","none");
+			},1500)	;
+			});
+		})
+		}else{
+			self.transitionToRoute(self.get('currentPath'));
+			setTimeout(function(){
+				$("#spinner-wrapper").css("display","none");
+			},1500)	;
+		}
+ 			}else{
+ 				self.transitionToRoute('index');
+ 				self.init();
+ 			}
  		}
+ 			
+ 	
  	})
  		
 

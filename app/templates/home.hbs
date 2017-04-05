@@ -37,12 +37,12 @@
 
                             
               {{#each model.suggest as |user|}}
-              <div class="follow-user" >
+              <div class="follow-user" id='{{user.id}}' >
               
                 <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
                 <div>
-                  <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
-                  <a href="#" class="text-green">Add friend</a>
+                  <h5>{{#link-to "not-friend-profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
+                  <a  class="text-green" {{action 'sendFriendRequest' user user.id}} >Add friend</a>
                 </div>
                
               </div>

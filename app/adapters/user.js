@@ -7,7 +7,10 @@ export default DS.JSONAPIAdapter.extend({
         let postfix = ""
           if(query !== undefined && query.route !== undefined && query.route === 'suggester'){
               postfix = inst.get("ip")+":"+inst.get("port")+"/user/suggestion/list";
-          }else{
+          }else if (query !== undefined && query.route !== undefined && query.route === 'request'){
+                postfix = inst.get("ip")+":"+inst.get("port")+"/friend/request/in/list";
+          }
+          else{
               postfix = inst.get("ip")+":"+inst.get("port")+"/friend/list";
           }
         
