@@ -5,9 +5,9 @@ export default DS.JSONAPIAdapter.extend({
        buildURL :function (modelName ,id,snapshot ,requestType,query) {
         let inst =this.get("service");
         let postfix = ""
-          if(query !== undefined && query.route !== undefined && query.route === 'suggester'){
+          if(query !== undefined && query.type !== undefined && query.type.indexOf('suggest') > -1){
               postfix = inst.get("ip")+":"+inst.get("port")+"/user/suggestion/list";
-          }else if (query !== undefined && query.route !== undefined && query.route === 'request'){
+          }else if (query !== undefined && query.type !== undefined && query.type.indexOf('requ') > -1){
                 postfix = inst.get("ip")+":"+inst.get("port")+"/friend/request/in/list";
           }
           else{

@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
 			    }, email, password);
 		},
 		signup(){
-
+			alert("hii");
 		}
 	}
 

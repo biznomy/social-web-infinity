@@ -1,0 +1,27 @@
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+        
+         <img class="my-image" id="de-croperId123" src="" />
+         <img id="croppedImage" style="width:300px">
+        </div>
+        <div class="modal-footer">
+       <input type="file" id='chooseImage' onChange={{action 'imagesss' 'chooseImage'}}>
+        <button {{action 'croppie'}}>Crop</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+

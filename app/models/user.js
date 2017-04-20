@@ -8,7 +8,7 @@ export default DS.Model.extend({
 	"photoURL": DS.attr("string"),
 	"email":DS.attr("string"),
 	"gender":DS.attr("string"),
-	"_type" : DS.attr("string"),
-	cover : DS.belongsTo("file")
+	"type" : DS.attr("string"),
+	"cover" : DS.belongsTo("file")
 
 });

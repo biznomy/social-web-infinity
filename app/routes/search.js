@@ -10,8 +10,8 @@ export default Ember.Route.extend({
      //post: this.get('store').query('post',"123", {"route" : "this"})
       //sendPost:this.store.createRecord('home')
      
-       suggest:this.store.query('user',{"route":"suggester"}),
-       friend:this.store.query('user',{"route":"friend"}),
+       suggest:this.store.query('user',{"type":"suggester"}),
+       friend:this.store.query('user',{"type":"friend"}),
 
     });
      // console.log(d);

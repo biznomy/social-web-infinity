@@ -7,11 +7,12 @@ export default Ember.Controller.extend({
 	isUser:false,
 	authTokenKey:"",
 	notUser : false,
+	sendtoserver : true,
 	userSave : function(data1 ,result){
        let user = this.store.peekRecord('user-info',1)
        if((user === undefined || user === null) || user._id !== data1._id ){
        		data1["id"] = 1;
-			data1["coverUrl"] = data1.cover.url;
+			data1["coverUrl"] = data1.cover ? data1.cover.url : "";
 			this.store.createRecord('user-info', data1);	
 			
        }
@@ -33,6 +34,7 @@ export default Ember.Controller.extend({
 		}
 		
 	},
+
 	init : function(){
 		let self = this;
 		 SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
@@ -41,6 +43,11 @@ export default Ember.Controller.extend({
          self.set("notUser",true);
          self.authError();
          }
+          if (PUSH_NOTIFICATION && self.get("sendtoserver")) {
+           // $(".mdl-layout__tab:eq(1) span").click();
+           self.set("sendtoserver",false);
+            PUSH_NOTIFICATION.init();
+        }
          }else{
        self.set("notUser",false);
        self.get("notLogin")(self);
@@ -60,9 +67,11 @@ export default Ember.Controller.extend({
 			});
 			
 			},function(data1){
+				console.log(data1)
 				self.authError();
 			})
 		}else{
+
 			self.authError();
 		}
        /*setInterval(function(){

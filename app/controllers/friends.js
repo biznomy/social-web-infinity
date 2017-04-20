@@ -13,5 +13,7 @@ export default Ember.Controller.extend({
 		
 	 	this.set("followers" ,inst.get("count.friend"));
 	   this.set("totalSuggestion" ,inst.get("count.suggester"));
+	  //this.set("myfriend", this.store.findAll('user')); 
+	  console.log(this.get("model"));
 	   },
 });

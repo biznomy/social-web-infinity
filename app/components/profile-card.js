@@ -6,5 +6,10 @@ export default Ember.Component.extend({
 	 didRender : function(){
 	 	let inst = this.get("service");
 	 	this.set("follower",inst.get("count.friend"))
+	 },
+	 actions : {
+	 	openModel(){	
+	 	 $('#myModal').modal('show');
+	 	}
 	 }
 });
