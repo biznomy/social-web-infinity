@@ -8,3 +8,18 @@ textarea#post-text:focus {
     height: 6em;
     width:18em;
 }
+
+
+
+@media only screen and (max-width: 768px){
+    .chat-block ,#chat-block{
+          display: none;
+    }
+}
+
+.saturation-filter{
+	-webkit-filter: contrast(150%);
+    filter: contrast(150%);
+    -webkit-filter: saturate(1.6);
+    filter: saturate(1.6);
+}

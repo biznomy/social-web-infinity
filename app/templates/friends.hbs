@@ -10,9 +10,9 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                  <img src="{{model.user.photoURL}}" alt="" class="img-responsive profile-photo" />
+                  <img src="{{model.user.photoURL}}" alt="" class="img-responsive profile-photo" onerror="this.src='assets/images/defaultUser.png'"/>
                   <h3>{{model.user.name}}</h3>
-                  <p class="text-muted">Creative Director</p>
+                  <p class="text-muted"></p>
                 </div>
               </div>
               <div class="col-md-9">
@@ -34,7 +34,7 @@
             <div class="profile-info">
               <img src="{{model.user.photoURL}}" alt="" class="img-responsive profile-photo" />
               <h4>{{model.user.name}}</h4>
-              <p class="text-muted">Creative Director</p>
+              <p class="text-muted"></p>
             </div>
             <div class="mobile-menu">
               <ul class="list-inline">
@@ -56,7 +56,7 @@
              <div class="title">Pending</div>
 
                             
-              {{#each model.request as |user|}}
+              {{#each model.requests as |user|}}
               <div class="follow-user" >
               
                 <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
@@ -86,12 +86,12 @@
               ================================================= -->
              <div class="friend-list">
                 <div class="row">
-              {{#each myfriend as |friend|}}
+              {{#each model.myfriends as |friend|}}
                   <div class="col-md-6 col-sm-6">
                     <div class="friend-card">
                       <img src="{{friend.cover.url}}" alt="profile-cover" class="img-responsive cover" />
                       <div class="card-info">
-                        <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg" />
+                        <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg" onerror="this.src='assets/images/defaultUser.png'"/>
                         <div class="friend-info">
                           <a href="#" class="pull-right text-green"></a>
                           <h5><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=friend.id)}}{{friend.name}}{{/link-to}}</a></h5>
@@ -122,7 +122,7 @@
               {{#each model.suggest as |user|}}
               <div class="follow-user" >
               
-                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
+                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" onerror="this.src='assets/images/defaultUser.png'" />
                 <div>
                   <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
                   <a href="#" class="text-green">Add friend</a>

@@ -4,18 +4,18 @@
            
             <div class="post-content" post-id={{data.id}}>
                {{#if data.files.url}}
-               <img  src="{{data.files.url}}" alt="post-image" class="img-responsive post-image" /> 
+               <img  src="{{data.files.url}}" alt="post-image" class="img-responsive post-image saturation-filter" style="height: 300px;"/> 
               <!--<img src="http://thunder-team.com/friend-finder/images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
               {{/if}}
           <div class="post-container">
-                <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left" />
+                <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left saturation-filter" onerror="this.src='assets/images/defaultUser.png'"/>
                 <div class="post-detail">
                   <div class="user-info">
                     <h5><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=data.created_by.id)}}{{data.created_by.name}}{{/link-to}}</a> <span class="following"></span></h5>
                     <p class="text-muted">{{date-time-format data.created_at}}</p>
                   </div>
                   <div class="reaction">
-                    <a class="btn text-green" post-like-id={{data.id}} {{action 'postLike' data.id}}><i class="icon ion-thumbsup unlike" ></i> {{data.like_count}}</a>
+                    <a class="btn text-green" post-like-id={{data.id}} {{action 'postLike' data.id}}><i class="icon ion-thumbsup {{if data.like '' 'unlike'}}" ></i> {{data.like_count}}</a>
                     <a class="btn text-blue" ><i class="fa ion-compose"></i> {{data.comment_count}}</a>
                   </div>
                   <div class="line-divider"></div>
@@ -26,7 +26,7 @@
                   <div comment-container={{data.id}}>
                   {{#each data.comments as |comment|}}
                       <div class="post-comment">
-                        <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm" />
+                        <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm saturation-filter" onerror="this.src='assets/images/defaultUser.png'"/>
                         <p><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=comment.user_id.id)}}{{comment.user_id.name}}{{/link-to}} </a><i class="em em-laughing"></i> {{comment.description}}</p>
                       </div>
                   {{/each}}

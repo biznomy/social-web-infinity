@@ -15,7 +15,7 @@
               {{/if}}
 
                  <div class="post-container">
-                <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left" />
+                <img src="{{data.created_by.photoURL}}" alt="user" class="profile-photo-md pull-left" onerror="this.src='assets/images/defaultUser.png'"/>
                 <div class="post-detail">
                   <div class="user-info">
                     <h5><a  class="profile-link">{{#link-to "profile" (query-params id=data.created_by.id)}}{{data.created_by.name}}{{/link-to}}</a> <span class="following"></span></h5>
@@ -34,7 +34,7 @@
                    <div comment-container={{data.id}}>
                   {{#each data.comments as |comment|}}
                       <div class="post-comment">
-                        <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm" />
+                        <img src="{{comment.user_id.photoURL}}" alt="" class="profile-photo-sm" onerror="this.src='assets/images/defaultUser.png'"/>
                         <p><a  class="profile-link">{{#link-to "profile" (query-params id=comment.user_id._id)}}{{comment.user_id.name}}{{/link-to}}</a><i class="em em-laughing"></i> {{comment.description}}</p>
                       </div>
                   {{/each}}

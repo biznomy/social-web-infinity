@@ -4,7 +4,7 @@
                <form enctype="multipart/form-data" method="post" name="fileinfo">
                 <div class="col-md-7 col-sm-7">
                   <div class="form-group">
-                    <img src="{{user.photoURL}}" alt="" class="profile-photo-md" />
+                    <img src="{{user.photoURL}}" alt="" class="profile-photo-md" onerror="this.src='assets/images/defaultUser.png'"/>
                     <textarea name="desciption" id="post-text" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
                   </div>
                 </div>
@@ -25,3 +25,6 @@
                  </form>
               </div>
             </div>
+            {{#if showModel}}
+            {{image-cropper viewPort='post' closeModl=(action 'closeModel') succeses=(action 'reloader')}}
+            {{/if}}

@@ -9,7 +9,8 @@ export default DS.Model.extend({
   like_count: DS.attr("number"),
   comment_count: DS.attr("number"),
    __v: DS.attr("number"),
-  files : DS.belongsTo("file")
+  files : DS.belongsTo("file"),
+  like : DS.attr("boolean")
 });
 		
 

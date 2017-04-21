@@ -36,12 +36,15 @@ export default Ember.Controller.extend({
 			       
 			        }else{
 			        	alert(result.message)
+			        	console.log("message");
 			        }
 			    
 			    }, email, password);
 		},
 		signup(){
-			alert("hii");
+			console.log("message");
+			
+
 		}
 	}
 

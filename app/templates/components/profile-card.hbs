@@ -1,6 +1,8 @@
  <div class="profile-card" style="background-image: url('{{cover}}')">
-            	<img src="{{img}}" alt="user" class="profile-photo" {{action 'openModel'}}/>
-            	 {{image-cropper}}
+            	<img src="{{img}}" alt="user" class="profile-photo" {{action 'openModel'}} onerror="this.src='assets/images/defaultUser.png'"/>
+            	{{#if showModel}}
+            	 {{image-cropper viewPort='profile' closeModl=(action 'closeModel') succeses=(action 'reloader')}}
+            	{{/if}}
             	<h5><a href="timeline.html" class="text-white">{{name}}</a></h5>
             	<a href="#" class="text-white"><i class="ion ion-android-person-add"></i> {{follower}} followers</a>
             </div><!--profile card ends-->

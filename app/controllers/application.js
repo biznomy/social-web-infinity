@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
        let user = this.store.peekRecord('user-info',1)
        if((user === undefined || user === null) || user._id !== data1._id ){
        		data1["id"] = 1;
-			data1["coverUrl"] = data1.cover ? data1.cover.url : "";
+			data1["coverUrl"] = data1.cover ? data1.cover.url : "assets/images/defaultcover.png";
 			this.store.createRecord('user-info', data1);	
 			
        }
@@ -160,6 +160,7 @@ logout(){
        // clearMessages();
     } else {
         SOCIAL_LOGIN.logout();
+        
     }
     this.get("notLogin")(this);
 },

@@ -5,18 +5,18 @@ service: Ember.inject.service('service'),
         let inst =this.get("service");
         let postfix = ""
           if(query !== undefined && query.route !== undefined && query.route === 'time-line'){
-              postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline/me"
+              postfix = inst.get("ip")+":"+inst.get("port")+"/post/timeline/me"
           }
           else if (query !== undefined && query.route !== undefined && query.route === 'profile'){
-           postfix = inst.get("ip")+":"+inst.get("port")+"/posts/timeline/"+query.id
+           postfix = inst.get("ip")+":"+inst.get("port")+"/post/timeline/"+query.id
           } 
           else if (query !== undefined && query.route !== undefined && query.route === 'search'){
-           postfix = inst.get("ip")+":"+inst.get("port")+"/posts/search?searchString="+query.text
+           postfix = inst.get("ip")+":"+inst.get("port")+"/post/search?searchString="+query.text
           
           }
 
           else{
-              postfix = inst.get("ip")+":"+inst.get("port")+"/posts/wall";
+              postfix = inst.get("ip")+":"+inst.get("port")+"/post/wall";
           }
         
         return postfix;

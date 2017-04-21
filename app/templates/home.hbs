@@ -40,7 +40,7 @@
               {{#each model.suggest as |user|}}
               <div class="follow-user" id='{{user.id}}' >
               
-                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
+                <img src="{{user.photoURL}}" onerror="this.src='assets/images/defaultUser.png'"  width="300" class="profile-photo-sm pull-left saturation-filter" />
                 <div>
                   <h5>{{#link-to "not-friend-profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
                   <a  class="text-green" {{action 'sendFriendRequest' user user.id}} >Add friend</a>

@@ -82,7 +82,8 @@ export default Ember.Service.extend({
                         processData: false,
                         contentType: false,
                         headers: { 
-                           'id-token': SOCIAL_LOGIN.authTokenz
+                           'id-token': SOCIAL_LOGIN.authTokenz,
+                            'Content-Type': 'application/json',
                         },
                         success: function(data, textStatus, jqXHR) {
                            postSuccess(data,it);
