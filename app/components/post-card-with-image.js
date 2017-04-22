@@ -20,16 +20,19 @@ export default Ember.Component.extend({
   	sendComment(id ,url , nme ,event) {
     
         if (event.key === "Enter"){
-            let urlpostfix = "/comment/save" 
-             var formData = new FormData();
+            let urlpostfix = "/comment/save/base64" 
+            // var formData = new FormData();
              var des = document.getElementById(id).value
-              formData.append("description" , des);
-              formData.append("post_id", id);
+              //formData.append("description" , des);
+              //formData.append("post_id", id);
+                var obj ={};
+                obj["description"]= des;
+                obj["post_id"]= id;
 
                let str =  '<div class="post-comment"><img src="'+url+'" alt="" class="profile-photo-sm" />'+
                           '<p><a href="timeline.html" class="profile-link">'+nme+' </a><i class="em em-laughing"></i>'+des+'</p>'+
                            '</div>';
-              this.get("service").postAjax(urlpostfix, formData ,function(data,inst){
+              this.get("service").postAjax(urlpostfix, JSON.stringify(obj) ,function(data,inst){
               let elm = $("[comment-container='"+id+"']");               
                 elm.append(str);
                 document.getElementById(id).value = ""
