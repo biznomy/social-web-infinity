@@ -203,7 +203,7 @@ currentPath : '',
 			},1500)	;
 		}
  			}else{
- 				self.transitionToRoute('index');
+ 				//self.transitionToRoute('index');
  				self.init();
  			}
  		}
