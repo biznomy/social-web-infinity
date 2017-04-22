@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
 		sendFriendRequest : function(userData ,id){
 			let its = this.get("service");
 			its.getAjax("/friend/"+userData.id+"/request",function(data1){
-			document.getElementById(id).innerHTML = "Unfriend"
+			document.getElementById(id).innerHTML = "Unfriend";
+			$("#"+id).attr("unfriend","unfriend");
 			},function(da){
 				console.log(da)
 			});

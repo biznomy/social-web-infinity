@@ -68,7 +68,8 @@ export default Ember.Controller.extend({
 			
 			},function(data1){
 				console.log(data1)
-				self.authError();
+				//self.authError();
+				self.get("notLogin")(self);
 			})
 		}else{
 

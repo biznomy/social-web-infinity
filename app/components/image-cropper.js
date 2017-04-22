@@ -10,7 +10,7 @@ export default Ember.Component.extend({
         }
         if (this.get('viewPort') == 'post') {
             obj["width"] = 200;
-            obj["height"] = 100;
+            obj["height"] = 130;
         } else {
             obj["width"] = 100;
             obj["height"] = 100;
@@ -34,7 +34,9 @@ export default Ember.Component.extend({
     actions: {
         croppie: function() {
             var self = this;
-            this.get("croper").result('base64').then(function(da) {
+            this.get("croper").result({
+                type:'base64',
+                format:'webp'}).then(function(da) {
                 $("#de-croperId123").parent().css("display", "none");
                 $("#croppedImage").css("display", "block");
                 $("#croppedImage").attr("src", da);

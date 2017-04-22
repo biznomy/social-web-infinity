@@ -47,7 +47,7 @@ export default Ember.Controller.extend({
 	   	sendFriendRequest : function(userData ,id){
 			let its = this.get("service");
 			its.getAjax("/friend/"+userData.id+"/request",function(data1){
-			document.getElementById(id).remove(); 
+			console.log(userData); 
 			},function(da){
 				console.log(da)
 			});

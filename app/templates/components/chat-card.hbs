@@ -2,7 +2,7 @@
               <div class="title">Chat online</div>
               <ul class="online-users list-inline">
               {{#each onlinePepole as |person index|}}
-                <li>{{#link-to "not-friend-profile" (query-params id=person.id)}}
+                <li>{{#link-to "profile" (query-params id=person.id)}}
                 <img src="{{person.photoURL}}" alt="user" class="img-responsive profile-photo saturation-filter" onerror="this.src='assets/images/defaultUser.png'" /><span class="online-dot" style="background:{{checker index}}"></span>{{/link-to}}
 </li>
                {{/each}}

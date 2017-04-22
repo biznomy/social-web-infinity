@@ -3,7 +3,7 @@
       <!-- Timeline
       ================================================= -->
       <div class="timeline">
-        <div class="timeline-cover" style="background-image: url('{{model.user.coverUrl}}')">
+        <div class="timeline-cover saturation-filter" style="background-image: url('{{model.user.coverUrl}}')">
 
           <!--Timeline Menu for Large Screens-->
           <div class="timeline-nav-bar hidden-sm hidden-xs">
@@ -57,12 +57,12 @@
 
                             
               {{#each model.requests as |user|}}
-              <div class="follow-user" >
+              <div class="follow-user" acceptId="{{user.id}}">
               
-                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" />
+                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" onerror="this.src='assets/images/defaultUser.png'"/>
                 <div>
-                  <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
-                  <a class="text-green">Accept</a>
+                  <h5>{{#link-to "not-friend-profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
+                  <a class="text-green" {{action 'friendRequestAccept' user user.id}}>Accept</a>
                 </div>
                
               </div>
@@ -89,9 +89,9 @@
               {{#each model.myfriends as |friend|}}
                   <div class="col-md-6 col-sm-6">
                     <div class="friend-card">
-                      <img src="{{friend.cover.url}}" alt="profile-cover" class="img-responsive cover" />
+                      <img src="{{if friend.cover.url friend.cover.url "assets/images/defaultcover.png"}}" alt="profile-cover" class="img-responsive cover saturation-filter" onerror="this.src='assets/images/defaultcover.png'" />
                       <div class="card-info">
-                        <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg" onerror="this.src='assets/images/defaultUser.png'"/>
+                        <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg saturation-filter" onerror="this.src='assets/images/defaultUser.png'"/>
                         <div class="friend-info">
                           <a href="#" class="pull-right text-green"></a>
                           <h5><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=friend.id)}}{{friend.name}}{{/link-to}}</a></h5>
@@ -120,12 +120,12 @@
 
                             
               {{#each model.suggest as |user|}}
-              <div class="follow-user" >
+              <div class="follow-user">
               
-                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left" onerror="this.src='assets/images/defaultUser.png'" />
+                <img src="{{user.photoURL}}" width="300" class="profile-photo-sm pull-left saturation-filter" onerror="this.src='assets/images/defaultUser.png'" />
                 <div>
-                  <h5>{{#link-to "profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
-                  <a href="#" class="text-green">Add friend</a>
+                  <h5>{{#link-to "not-friend-profile" (query-params id=user.id)}}{{user.name}}{{/link-to}}</h5>
+                  <a {{action 'sendFriendRequest' user user.id}} class="text-green" >Add friend</a>
                 </div>
                
               </div>

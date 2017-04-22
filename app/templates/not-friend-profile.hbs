@@ -3,7 +3,7 @@
       <!-- Timeline
       ================================================= -->
       <div class="timeline">
-        <div class="timeline-cover" style="background-image: url('{{model.user.cover.url}}')">
+        <div class="timeline-cover" style="background-image: url('{{if model.user.cover.url model.user.cover.url "assets/images/defaultcover.png"}}')">
 
           <!--Timeline Menu for Large Screens-->
           <div class="timeline-nav-bar hidden-sm hidden-xs">
