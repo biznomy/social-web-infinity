@@ -38,7 +38,8 @@ export default Ember.Controller.extend({
 	init : function(){
 		let self = this;
 		 SOCIAL_LOGIN.onAuthStateChanged  = function(status, user1){
-       if(status){    
+       if(status){
+        $("#header").show();    
          if(!self.get("notUser")){
          self.set("notUser",true);
          self.authError();
@@ -155,7 +156,7 @@ logout(){
             console.log(r);
             SOCIAL_LOGIN.logout();
         });
-         $("#header").hide();
+        
          SOCIAL_LOGIN.logout();
 
        // clearMessages();
@@ -215,6 +216,7 @@ currentPath : '',
  	}.observes('currentPath'),
 
  	notLogin: function(self){
+ 		        $("#header").hide();
  		 		self.transitionToRoute('login');
 				setTimeout(function(){
 						$("#spinner-wrapper").css("display","none");

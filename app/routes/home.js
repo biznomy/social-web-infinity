@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model(params) {
     //return this.store.findAll('post');
-   
+    
      var d = Ember.RSVP.hash({
       
     // post: this.store.findAll('post',{"id":"home"}),
@@ -16,6 +16,7 @@ export default Ember.Route.extend({
 
     });
      // console.log(d);
+    bootstrap_alert.loader('Loading...', 'loader', undefined,d);
      return d;
 
   },

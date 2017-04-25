@@ -21,7 +21,7 @@ export default Ember.Route.extend({
 
      
         });
-    
+     bootstrap_alert.loader('Loading...', 'loader',undefined,d);
      return d;
   }
 });

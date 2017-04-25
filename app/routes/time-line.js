@@ -11,6 +11,7 @@ export default Ember.Route.extend({
 
     });
      // console.log(d);
+      bootstrap_alert.loader('Loading...', 'loader',undefined,d);
      return d;
 
   }

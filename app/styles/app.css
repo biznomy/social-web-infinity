@@ -23,3 +23,26 @@ textarea#post-text:focus {
     -webkit-filter: saturate(1.6);
     filter: saturate(1.6);
 }
+
+#floating_alert {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5000;
+}
+#elm_alert{
+     top: 10px;
+    font-size: 17px;
+}
+#loader_alert {
+    position: fixed;
+    padding:10px 20px;
+    top: 60px;
+    right: 20px;
+    z-index: 5000;
+}
+.alert-loader{
+    color: #3F51B5;
+       background-color: rgba(0, 188, 212, 0.88);
+    border-color: #3F51B5;
+}

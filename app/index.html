@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SocialWebInfinity</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {{content-for "head"}}
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {{content-for "head"}}
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/social-web-infinity.css">
-
-    {{content-for "head-footer"}}
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{rootURL}}assets/social-web-infinity.css"> {{content-for "head-footer"}}
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/ionicons.min.css" />
     <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-     <link rel="shortcut icon" type="assets/image/png" href="images/fav.png"/>
-  <link rel="stylesheet" href="assets/css/cropper.css" />
-    
+    <link rel="shortcut icon" type="assets/image/png" href="images/fav.png" />
+    <link rel="stylesheet" href="assets/css/cropper.css" />
+</head>
 
-  </head>
-  <body>
+<body>
     {{content-for "body"}}
-
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/social-web-infinity.js"></script>
-
     {{content-for "body-footer"}}
-     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
-     <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.appear.min.js"></script>
     <script src="assets/js/jquery.incremental-counter.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
-     <script src="assets/user/social-login.js"></script>
-      <script src="assets/user/service.js"></script>
-     <script src="assets/user/push-notification.js"></script>
-   
-      <script src="assets/js/cropper.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script src="assets/user/social-login.js"></script>
+    <script src="assets/user/service.js"></script>
+    <script src="assets/user/push-notification.js"></script>
+    <script src="assets/js/cropper.js"></script>
+    <script type="text/javascript">
+    bootstrap_alert = function() {}
+    bootstrap_alert.warning = function(message, alert, timeout) {
+        $('<div id="floating_alert" class="alert alert-' + alert + ' fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + message + '&nbsp;&nbsp;</div>').appendTo('body');
 
-      <script src="assets/user/index.js"></script>
-         <script src="assets/js/script.js"></script>
-  </body>
+
+        setTimeout(function() {
+            $(".alert").alert('close');
+        }, timeout);
+    }
+    bootstrap_alert.elm = function(message, alert, timeout, elm) {
+        $('<div id="elm_alert" class="alert alert-' + alert + ' fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + message + '&nbsp;&nbsp;</div>').appendTo(elm);
+
+
+        setTimeout(function() {
+            $("#elm_alert").alert('close');
+        }, timeout);
+
+    }
+    bootstrap_alert.loader = function(message, alert, timeout, d) {
+        var ints = setInterval(function() {
+            if (d._result !== undefined) {
+                $("#loader_alert").alert('close');
+                clearInterval(ints);
+            }
+
+        }, 1000)
+        $('<div id="loader_alert" class="alert alert-' + alert + ' fade in"><i class="fa fa-spinner fa-spin" style="font-size:24px "></i><span style="margin-left:15px;font-size:16px">' + message + '</span>&nbsp;&nbsp;</div>').appendTo('body');
+
+        if (timeout !== undefined) {
+            setTimeout(function() {
+                $(".alert").alert('close');
+            }, timeout);
+        }
+
+    }
+    bootstrap_alert.closeLoader = function() {
+        $("#loader_alert").alert('close');
+    }
+    </script>
+    <script src="assets/user/index.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
 </html>

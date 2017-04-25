@@ -35,7 +35,7 @@
      onAuthStateChanged: function(status) {
          console.log(status);
      },
-     login(provider, callback, email, password) {
+     login :function(provider, callback, email, password) {
          provider = SOCIAL_LOGIN._getProvider(provider, email, password);
          if (!password || password == "") {
              firebase.auth()[SOCIAL_LOGIN.loginStyle](provider).then(function(result) {

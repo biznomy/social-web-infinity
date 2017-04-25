@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
 	   this.set("totalSuggestion" ,inst.get("count.suggester"));
 	  //this.set("myfriend", this.store.findAll('user')); 
 	  console.log(this.get("model"));
+	  // bootstrap_alert.closeLoader();
 	   },
 	   actions : {
 	   	sendFriendRequest : function(userData ,id){
