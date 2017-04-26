@@ -46,3 +46,13 @@ textarea#post-text:focus {
        background-color: rgba(0, 188, 212, 0.88);
     border-color: #3F51B5;
 }
+.coverUpade{
+    position: absolute;
+    right: 20px;
+    
+    font-size: 12px;
+}
+.profileUpade: {
+    position: relative;
+    top: -41px;
+}

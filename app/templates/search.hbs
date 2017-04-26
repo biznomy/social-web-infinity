@@ -16,16 +16,19 @@
 
             <!-- Post Create Box
             ================================================= -->
-            {{post-and-share new=model.sendPost post=model.post user=model.user succeses=(action 'reloader')}}
+           
             <!-- Post Create Box End-->
 
             
             <!-- Post Content
             ================================================= -->
-           
+           {{#if searchData }}
            {{#each arrangedContent as |po|}}
                 {{post-card-with-image data=po user=model.user }}
              {{/each}}
+             {{else}}
+             <div> No Result Found </div>
+             {{/if}}
            <!-- End Post Content -->
            </div>
 

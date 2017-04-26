@@ -9,6 +9,7 @@ export default DS.Model.extend({
 	"email":DS.attr("string"),
 	"gender":DS.attr("string"),
 	"type" : DS.attr("string"),
-	"cover" : DS.belongsTo("file")
+	"cover" : DS.belongsTo("file"),
+	"currentLocation":DS.belongsTo("object"),
 
 });

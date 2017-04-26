@@ -10,7 +10,9 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
+                 <p class='text-white' style="position: relative;top: 195px;" {{action 'openPCropper'}}>Change Photo</p>
                   <img src="{{model.user.photoURL}}" alt="" class="img-responsive profile-photo" onerror="this.src='assets/images/defaultUser.png'"/>
+
                   <h3>{{model.user.name}}</h3>
                   <p class="text-muted"></p>
                 </div>
@@ -22,12 +24,13 @@
                   <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
                 </ul>
                 <ul class="follow-me list-inline">
-                  <li>{{followers}} people following </li>
+                  <li>{{followers}} peoples following </li>
                   <!--<li><button class="btn-primary">Add Friend</button></li>
                   -->
                 </ul>
               </div>
             </div>
+            <a class='text-white coverUpade' {{action "openCropper"}}>Change Cover</a>
           </div><!--Timeline Menu for Large Screens End-->
 
           <!--Timeline Menu for Small Screens-->
@@ -71,3 +74,10 @@
         </div>
       </div>
     </div>
+{{#if showModel}}
+            {{image-cropper viewPort='post' closeModl=(action 'closeModel') succeses=(action 'croppedCoverImage')}}
+            {{/if}}
+
+{{#if profileModel}}
+               {{image-cropper viewPort='profile' closeModl=(action 'closeModel') succeses=(action 'croppedProfileImage')}}
+              {{/if}}

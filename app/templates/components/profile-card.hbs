@@ -3,6 +3,6 @@
             	{{#if showModel}}
             	 {{image-cropper viewPort='profile' closeModl=(action 'closeModel') succeses=(action 'reloader')}}
             	{{/if}}
-            	<h5><a href="timeline.html" class="text-white">{{name}}</a></h5>
-            	<a href="#" class="text-white"><i class="ion ion-android-person-add"></i> {{follower}} followers</a>
+            	<h5 >{{#link-to 'time-line' class='text-white'}}{{name}}{{/link-to}}</h5>
+            	{{#link-to 'time-line' class='text-white'}}<i class="ion ion-android-person-add"></i> {{follower}} followers{{/link-to}}
             </div><!--profile card ends-->

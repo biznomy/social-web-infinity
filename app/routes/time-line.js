@@ -6,7 +6,8 @@ export default Ember.Route.extend({
    
      var d = Ember.RSVP.hash({
       user : this.store.peekRecord('user-info',1),
-      post: this.get('store').query('post',{"route" : "time-line"})
+      post: this.get('store').query('post',{"route" : "time-line"}),
+      friend:this.store.query('user',{"type":"friend"})
      // sendPost:this.store.createRecord('home')
 
     });

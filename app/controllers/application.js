@@ -186,13 +186,13 @@ currentPath : '',
  	   let its = this.get("service");
  		let user = this.store.peekRecord('user-info',1)
  		 Ember.run.schedule('afterRender', this, function() {
- 		if(this.get('currentPath') !== "index"){
+ 		if(this.get('currentPath') !== "index" && this.get('currentPath') !== "home" && this.get('currentPath') !== "login"){
  			if(document.cookie !== "" && document.cookie !== undefined && document.cookie !== null){
 			if(user == null || user == undefined || user == ""){	
 			its.getAjax("/user/me",function(data1){
 			self.userSave(data1 , function(){	
-			self.transitionToRoute(self.get('currentPath'));
 			setTimeout(function(){
+				self.transitionToRoute(self.get('currentPath'));
 				$("#spinner-wrapper").css("display","none");
 			},1500)	;
 			});
