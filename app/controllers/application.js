@@ -186,7 +186,7 @@ currentPath : '',
  	   let its = this.get("service");
  		let user = this.store.peekRecord('user-info',1)
  		 Ember.run.schedule('afterRender', this, function() {
- 		if(this.get('currentPath') !== "index" && this.get('currentPath') !== "home" && this.get('currentPath') !== "login"){
+ 		if(this.get('currentPath') !== "index"){
  			if(document.cookie !== "" && document.cookie !== undefined && document.cookie !== null){
 			if(user == null || user == undefined || user == ""){	
 			its.getAjax("/user/me",function(data1){

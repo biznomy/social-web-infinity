@@ -12,7 +12,7 @@ export default Ember.Route.extend({
      
        suggest:this.store.query('user',{"type":"suggester"}),
        friend:this.store.query('user',{"type":"friend"}),
-       user : this.store.peekRecord('user-info',1),
+       user : this.store.peekRecord('user-info',1)
 
     });
      // console.log(d);

@@ -42,9 +42,9 @@ textarea#post-text:focus {
     z-index: 5000;
 }
 .alert-loader{
-    color: #3F51B5;
-       background-color: rgba(0, 188, 212, 0.88);
-    border-color: #3F51B5;
+    color: #ffffff;
+    background-color: rgba(79, 76, 77, 0.46);
+    border-color: rgba(79, 76, 77, 0.46);
 }
 .coverUpade{
     position: absolute;
