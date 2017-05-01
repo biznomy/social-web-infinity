@@ -34,12 +34,13 @@ export default Ember.Component.extend({
     actions: {
         croppie: function() {
             var self = this;
+
             this.get("croper").result({
                 type:'base64',
                 format:'webp'}).then(function(da) {
                 $("#de-croperId123").parent().css("display", "none");
                 $("#croppedImage").css("display", "block");
-                $("#croppedImage").attr("src", da);
+                $("#croppedImage").attr("src", da); 
                 self.succeses(da);
             });
         },

@@ -19,15 +19,45 @@
            
             <!-- Post Create Box End-->
 
-            
+            <h3>Users</h3>
+            {{#if searchUser }}
+               <div class="friend-list">
+                <div class="row">
+              {{#each users as |friend|}}
+                  <div class="col-md-6 col-sm-6">
+                    <div class="friend-card">
+                      <img src="{{if friend.cover.url friend.cover.url "assets/images/defaultcover.png"}}" alt="profile-cover" class="img-responsive cover saturation-filter" onerror="this.src='assets/images/defaultcover.png'" />
+                      <div class="card-info">
+                        <img src="{{friend.photoURL}}" alt="user" class="profile-photo-lg saturation-filter" onerror="this.src='assets/images/defaultUser.png'"/>
+                        <div class="friend-info">
+                          <a href="#" class="pull-right text-green"></a>
+                          <h5><a href="timeline.html" class="profile-link">{{#link-to "profile" (query-params id=friend.id)}}{{friend.name}}{{/link-to}}</a></h5>
+                          <!--<p>Student at Harvard</p>
+                          -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                 {{/each}}
+                 
+                 
+                 </div>
+                 </div>
+
+             {{else}}
+             <div> No User Found </div>
+             {{/if}}
+            <hr>
             <!-- Post Content
             ================================================= -->
+          <h3>Posts</h3>
            {{#if searchData }}
            {{#each arrangedContent as |po|}}
                 {{post-card-with-image data=po user=model.user }}
              {{/each}}
              {{else}}
-             <div> No Result Found </div>
+             <div> No Post Found </div>
              {{/if}}
            <!-- End Post Content -->
            </div>

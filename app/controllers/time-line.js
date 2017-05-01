@@ -40,10 +40,12 @@ export default Ember.Controller.extend({
         },
         openCropper() {
             this.set("showModel", true);
+          //  this.set("profileModel", false);
             $('#myModal').modal('show');
         },
         openPCropper() {
             this.set("profileModel", true);
+            //this.set("showModel", false);
             $('#myModal').modal('show');
         },
         croppedCoverImage(data) {

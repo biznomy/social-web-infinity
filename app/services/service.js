@@ -74,6 +74,7 @@ export default Ember.Service.extend({
          },
          postAjax : function(urlPostfix, formData ,postSuccess , postError, it){
            let self = this;
+            bootstrap_alert.loader('Loading...', 'loader',undefined,undefined);
             let URL = this.get("ip")+":"+this.get("port")+urlPostfix;
              $.ajax({
                         type: "POST",
@@ -87,12 +88,14 @@ export default Ember.Service.extend({
                         },
                         success: function(data, textStatus, jqXHR) {
                            postSuccess(data,it);
+                          bootstrap_alert.closeLoader();
                         },
                         error: function(data, textStatus, jqXHR) {
                            if(data.message.indexOf("Token Not Found")){
                             self.get("authToken")();
                            } 
                            postError(data,it);
+                           bootstrap_alert.closeLoader();
                         },
                 });
          },

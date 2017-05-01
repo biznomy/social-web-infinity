@@ -54,6 +54,13 @@
         }, timeout);
 
     }
+    bootstrap_alert.elmLoader = function(elm , action){
+        if(action.indexOf("open")){
+            $("#"+elm).html('<i class="fa fa-spinner fa-spin" style="font-size:24px "></i>');
+        }else{
+            $("#"+elm).find(".fa.fa-spinner").remove();
+        }
+    },
     bootstrap_alert.loader = function(message, alert, timeout, d) {
         var ints = setInterval(function() {
             if (d._result !== undefined) {

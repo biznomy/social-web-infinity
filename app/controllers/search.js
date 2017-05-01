@@ -17,14 +17,26 @@ export default Ember.Controller.extend({
     test123: function(id) {
         var self = this;
         let textVale = document.getElementById(id).value;
-        var lists = self.store.query('post', { "route": "search", "text": textVale });
-        if (lists.length > 0) {
+        self.store.query('post', { "route": "search", "text": textVale }).then(function(lists){
+
+        if (lists.toArray().length > 0) {
             self.set("searchData", true)
             self.set('postezs', lists)
         } else {
             self.set("searchData", false)
         }
+            
+        });
+        self.store.query('user', { "route": "search", "text": textVale }).then(function(lists){
 
+        if (lists.toArray().length > 0) {
+            self.set("searchUser", true)
+            self.set('users', lists)
+        } else {
+            self.set("searchUser", false)
+        }
+            
+        });
         //self.set('postezs',self.store.findAll('post'))
         // suggest:this.store.query('user',{"route":"suggester"}),
     },
